@@ -10,5 +10,11 @@
     <%=title%>
     <a href="/food">Click here to go to food</a>
 
+    <form action="/food/getCity" method="POST">
+        <label for="cityBox">Enter Your City:</label><br>
+        <input type="text" id="cityBox" name="cityBox"><br>
+        <input type="submit" value="Send City">
+    </form>
+
 </body>
 </html>
