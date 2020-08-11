@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= restaurant.name %></h1>
+    <div><%= restaurant.display_phone %></div>
+    <div><% location.display_address.forEach(elem => { %>
+         <p><%= elem %></p>
+        <% }) %>
+    </div>
+    <div>
+        <% restaurant.photos.forEach(url => { %>
+           <img src= "<%= url %>" />
+        <% }) %>
+
+    </div>
+
+</body>
+</html>

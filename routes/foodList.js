@@ -7,64 +7,96 @@ const router = express.Router()
 const axios = require('axios')
 
 //Needed for the Yelp Fusion API package
-const yelp = require('yelp-fusion')
 const { YELP_API_KEY } = process.env // Obtaining the API Key from process.env
-const client = yelp.client(`${YELP_API_KEY}`) // Obtaining Client info so we can make requests
+
 
 /*
-//API Call to get a list of food places by location
-//For a full list of search options, look here
-// - https://www.yelp.com/developers/documentation/v3/business_search
-//Fusion Endpoints can be found here
-// - https://github.com/tonybadguy/yelp-fusion
-client.search({
-    //In here, We choose Params as keys and insert strings to search by.
-    //Will find a way to streamline this later so it only searches by filters
-    //that the user chooses:
-    
-    //term: 'Four Barrel Coffee',
-    location: ,
-}).then(response => {
-      //This is where we will print out the location listings, but for now it will print out the first
-      //option on the json that is returned
-    console.log(response.jsonBody);//.businesses[0]);
-}).catch(e => {
-    //Print Out an error if one arises
-    console.log(e);
-});
+--API Call to get a list of food places by location
+--For a full list of search options, look here
+--- https://www.yelp.com/developers/documentation/v3/business_search
 */
 
 router.get('/', (req, res, next) => {
   res.render('foodListings', { title: 'Food Listings Go Here!!!!' });
 });
 
-
-router.post('/getCity', (req, res) => {
+router.post('/results', (req, res) => { //Re-Directs to location=[LOCATION] below...
     console.log(req.body)
-    client.search({
-        //In here, We choose Params as keys and insert strings to search by.
-        //Will find a way to streamline this later so it only searches by filters
-        //that the user chooses:
-        
-        //term: 'Four Barrel Coffee',
-        location: req.body.cityBox,
-        limit: 3
-    }).then(response => {
-        console.log(response.jsonBody.businesses)
-        res.render('food/foodListings', {
-            city: req.body.cityBox,
-            restaurants: response.jsonBody.businesses
-        })
-    }).catch(e => {
-        //Print Out an error if one arises, then redirect to home
-        console.log(e);
-        res.redirect('/')
-    });
-    
-        
+    res.redirect(`/food/location=${req.body.cityBox}`)      
 });
 
+router.get('/location=:city', (req, res) => { //Re-Directs HERE and gets the listing
+
+    var config = {
+        method: 'get',
+        url: `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${req.params.city}&limit=10`,
+        headers: { 
+            'Authorization': `Bearer ${YELP_API_KEY}`
+        }
+    };
+
+    axios(config)
+    .then((response) => {
+        //console.log(JSON.stringify(response.data.businesses) + '  <--Response')
+        res.render('food/foodListings', {
+            city: req.params.city,
+            restaurants: response.data.businesses
+        })
+    })
+    .catch(function (error) {
+        console.log(error);
+        res.redirect('/')
+    });
+
+})
+
 //API call to get food place info by ID
+router.get('/location=:city/id=:id', async (req, res) => {
+    console.log(req.params.id + " " + req.params.city)
+    const { id } = req.params
+
+    var config = {
+        method: 'get',
+        url: `https://api.yelp.com/v3/businesses/${req.params.id}`,
+        headers: { 
+            'Authorization': `Bearer ${YELP_API_KEY}`
+        }
+    };
+    try {
+        const { data: restaurant } = await axios(config)
+        console.log(restaurant) // This is the Restaurant info in Json format!!!
+        res.render("food/foodShow", {
+            restaurant,
+            location: restaurant.location
+        })
+
+
+    }catch (err){
+        console.log(err);
+        res.redirect('/')
+    }
+
+ 
+})
+
+
+// router.get('/:id', async (req, res, next) => {
+//     const { id } = req.params;
+  
+//     try {
+//       const { data: movie } = await axios.get(
+//         `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_API_KEY}&language=en-US`,
+//       );
+//       // const movieData = movie.data;
+//       console.log(movie);
+//       res.render('movies/show', {
+//         movie,
+//       });
+//     } catch (e) {
+//       console.log(e);
+//     }
+//   });
+
 
 
 
