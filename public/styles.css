@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+/* Header Styles */
+#logo {
+    position: relative;
+    height: 4rem;
+}
+.logo_name {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 3rem;
+    color: #F25757;
+    margin-left: 1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all .5s ease; 
+}
+
+.logo_name:nth-child(2) {
+    color: #FF9000;
+    z-index: -1;
+    left: -5px;
+    top: 5px;
+}
+
+.logo_name:nth-child(3) {
+    color: #FCE762;
+    z-index: -2;
+    left: -10px;
+    top: 10px;  
+}
+
+/* Hero Styles */
+#hero {
+    background-image: url(/images/lunch.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 100%;
+}
+#hero div {
+    background-color: rgba(0,0,0,.6);
+    display: inline-block;
+    padding: 10px;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+}
+#hero h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+}
+
+/* About Styles */
+#about div {
+    max-width: 80%;
+    margin: 50px auto;
+    text-align: justify;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+}
+#about div > * {
+    margin: 10px;
+}

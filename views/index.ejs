@@ -1,32 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodVerse | Support Local</title>
-</head>
-<body>
-    <header>
-        <div id="logo"><h1>FoodVerse</h1></div>
-        <!-- <button>Login</button> -->
-    </header>
+<%- include('partials/header') %>
     
     <main id="hero">
-        <p>Eat Local</p>
-        <input type="text" placeholder="Enter City">
+        <div>
+            <h2>Eat Local</h2>
+            <input type="text" placeholder="Enter City">
+        </div>
     </main>
 
-    <section>
-
+    <section id="about">
         <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam tortor eget lectus sollicitudin, at laoreet arcu malesuada. Integer lorem libero, lacinia ut orci ac, feugiat porta nisi. Vestibulum scelerisque, urna eu sagittis hendrerit, ante sem bibendum tellus, vitae commodo eros est eu nunc. Phasellus id dictum orci. Phasellus est lacus, tincidunt sit amet ligula vitae, dictum venenatis enim. Duis rhoncus blandit ultricies. Donec non viverra diam, vel luctus nisl. Duis id aliquam orci. Duis tempus ex luctus nunc lobortis, nec porta orci varius.</p>
-            <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081" alt="">
+            <p>Welcome to FoodVerse! The coronavirus pandemic has affected us all, including thousands of local restaurants and cafes. FoodVerse helps struggling local businesses by filtering out the bigger chain corporations for you and only presenting you with a curated list of locally-owned restaurants in your neighborhood. Think of us as the Yelp (we are using their API after all) for locally-owned restaurants. Bon appetit!</p>
+            <img src="/images/breakfast.jpg" style="width: 300px" alt="">
         </div>
         <div>
-            <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam tortor eget lectus sollicitudin, at laoreet arcu malesuada. Integer lorem libero, lacinia ut orci ac, feugiat porta nisi. Vestibulum scelerisque, urna eu sagittis hendrerit, ante sem bibendum tellus, vitae commodo eros est eu nunc. Phasellus id dictum orci. Phasellus est lacus, tincidunt sit amet ligula vitae, dictum venenatis enim. Duis rhoncus blandit ultricies. Donec non viverra diam, vel luctus nisl. Duis id aliquam orci. Duis tempus ex luctus nunc lobortis, nec porta orci varius.</p>
+            <img src="/images/dinner.jpg" style="width: 300px" alt="">
+            <p>FoodVerse is created by Gio, <a href="http://developergrace.com/" target="_blank" rel="noopener noreferrer">Grace</a>, and Hassan. We are web developers who met through the Snap Engineering Academy during the pandemic of 2020 that forced most of the nation to shut down. We wanted to help our favorite local restaurants and thought it would be a fantastic idea to develop an app that filters out big chains like Starbucks and Mcdonalds. We figure, if people want to eat there, they know where to find them. Independently-owned local restaurants that rely on word-of-mouth to drive business, not so much. This led to the birth of FoodVerse to help everyone indulge responsibly. In the immortal words of Uncle Ben: “With great power comes great responsibility.”</p>
         </div>
     </section>
     
+    <%=title%>
+    <a href="/food">Click here to go to food</a>
+
+    <form action="/food/getCity" method="POST">
+        <label for="cityBox">Enter Your City:</label><br>
+        <input type="text" id="cityBox" name="cityBox"><br>
+        <input type="submit" value="Send City">
+    </form>
+
 </body>
 </html>
