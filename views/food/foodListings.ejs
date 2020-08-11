@@ -6,8 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    Listing Page - 
-    <%=city%>
-    <%=restaurants.name%>
+
+    <h1>Top 10 Restaurants for <%=city%></h1>
+    <div>
+    <% restaurants.forEach(rest => { %>
+    <div><a href="/food/location=<%=city%>/id=<%= rest.id %>"><%= rest.name %> - <%= rest.distance %>m Away</a></div>
+    <% }) %>
+    </div>
 </body>
 </html>

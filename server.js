@@ -29,3 +29,12 @@ app.use('/food', foodListRouter);
 app.listen(PORT, (err) =>
 	console.log(`${err ? err : `Running on port ${PORT}`}`),
 )
+
+/* ---- GIO's TO-DO LIST
+--Get the listing pages working
+--Make a "Next Page" Mechanic
+--Impliment sort by (with pricing)
+--Navbar Partials
+
+--Google Auth w/ firebase....?
+*/
