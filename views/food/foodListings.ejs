@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include('../partials/header') %>
+<div id="navBar">
+    <%- include('../partials/logo') %>
+    <%- include('../partials/search') %>
+</div>
+<main>
+    <div class="restaurant">
+        <div class="restImg">
+            <img src="/images/lunch.jpg">
+        </div>
+        <div class="restInfo">
+            <p class="restName">Jane's Cafe</p>
+            <p class="restAddress">123 Lane St.</p>
+            <p class="restPhone">888-555-0000</p>
+            <button class="restBtn">See More</button>
+        </div>
+    </div>
+</main>
 
     <h1>Top 10 Restaurants for <%=city%></h1>
     <div>
@@ -13,5 +23,5 @@
     <div><a href="/food/location=<%=city%>/id=<%= rest.id %>"><%= rest.name %> - <%= rest.distance %>m Away</a></div>
     <% }) %>
     </div>
-</body>
-</html>
+
+<%- include('../partials/footer') %>
