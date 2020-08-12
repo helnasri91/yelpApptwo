@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href='/'>Home</a>    <a href='/food/location=<%=city%>/page=<%=page%>'>Back to List</a>
     <h1><%= restaurant.name %></h1>
     <div><%= restaurant.display_phone %></div>
     <div><% location.display_address.forEach(elem => { %>
