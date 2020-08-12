@@ -70,11 +70,13 @@ a:active {
     font-size: 3.5em;
     color: white;
     text-align: center;
+    text-shadow: -2px 2px 2px gray;
 }
-#hero form {
+#hero form, #searchBar form {
     display: flex;
     justify-content: flex-start;
     margin-top: 1.5%;
+    box-shadow: -1px 1px 5px gray;
 }
 #hero form input, #searchBar input {
     font-size: 1.3em;
@@ -89,7 +91,6 @@ a:active {
 }
 #searchBar input {
     max-width: 300px;
-    border: 1px solid gray;
     margin-right: 0 !important;
 }
 #hero form button, #searchBar button {
@@ -101,6 +102,7 @@ a:active {
     padding: 5px 10px;
     cursor: pointer;
     transition: .2s ease all;
+    text-shadow: -2px 2px 2px gray;
 }
 #searchBar button {
     border: 1px solid #F25757;
@@ -132,29 +134,69 @@ a:active {
 }
 
 /* Results Styles */
-.restaurant {
+#foodListings {
+    display: flex;
+    flex-flow: row wrap;
+}
+#foodListings h3 {
     width: 90%;
-    margin: 30px auto;
+    margin: 0 auto;
+    font-size: 2em;
+    margin: 30px auto 0;
+    border-top: 1px solid lightgray;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgray;
+}
+/* .restaurant {
+    width: 90%;
+    margin: 25px auto;
     display: flex;
     align-items: center;
     border: 1px solid lightgray;
+} */
+.restaurant {
+    width: 90%;
+    margin: 25px auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    border: 1px solid lightgray;
 }
-.restImg {
-    width: 150px;
-    height: 150px;
+/* .restImg {
+    width: 200px;
+    height: 200px;
     overflow: hidden;
-    margin-left: 5px;
+    margin: 5px;
+} */
+.restImg {
+    width: 98%;
+    height: 250px;
+    overflow: hidden;
+    margin: 5px;
 }
 .restImg img {
     height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
 }
-.restInfo {
+/* .restInfo {
     width: 80%;
     margin-left: 20px;
     margin-bottom: 5px;
+} */
+.restInfo {
+    width: 100%;
+    margin: 0 10px 10px;
+    position: relative;
 }
 .restName {
     font-weight: bold;
+    font-size: 1.1em;
+    margin: 5px auto;
+}   
+.restAddress {
+    margin: 0;
 }
 .restBtn {
     outline: none;
@@ -166,6 +208,9 @@ a:active {
     padding: 5px 10px;
     cursor: pointer;
     transition: .2s ease all;
+    position: absolute;
+    right: 20px; 
+    top: 5px;
 }
 .restBtn:hover {
     background-color: #c14545;
@@ -196,5 +241,23 @@ footer p {
     }
     #about img {
         display: block;
+    }
+}
+@media screen and (min-width: 900px) {
+    /* Results Styles */
+    #foodListings h3 {
+        width: 95%;
+        text-align: center;
+    }
+    .restaurant {
+        width: 45%;
+    }
+    .restBtn {
+        right: 15px;
+    }
+}
+@media screen and (min-width: 1500px) {
+    #about div {
+        max-width: 60%;
     }
 }
