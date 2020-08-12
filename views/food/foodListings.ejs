@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
-
-    <h1>Top 10 Restaurants for <%=city%></h1>
+    <form action="/food/results" method="POST">
+        <label for="cityBox">Enter Your City:</label><br>
+        <input required type="text" id="cityBox" name="cityBox"><br>
+        <input type="submit" value="Send City">
+    </form>
+    <h1>Search Results for Restaurants for <%=city%></h1>
+    <p>Showing results <%= ((parseInt(page) -1) * 10)+1 %> through <%= ((parseInt(page) * 10) < data.total) ? (parseInt(page) * 10) : data.total %> out of <%= data.total %></p>
     <div>
     <% restaurants.forEach(rest => { %>
-    <div><a href="/food/location=<%=city%>/id=<%= rest.id %>"><%= rest.name %> - <%= rest.distance %>m Away</a></div>
+    <div><a href="/food/location=<%= city %>/page=<%= page %>/id=<%= rest.id %>"><%= rest.name %> - <%= rest.distance %>m Away</a></div>
     <% }) %>
     </div>
+    <br>
+    <% var lastPage = 1;  %>
+    <% if(parseInt(page) !== 1){ lastPage = page-1 } %>
+    <% var nextPage = parseInt(page) + 1 %>
+    <% if((parseInt(page) * 10) > data.total){ nextPage = page }              %>
+    <a href='/'>Home</a>    <a href='/food/location=<%=city%>/page=<%=lastPage%>'>Previous Page</a>   <a href='/food/location=<%=city%>/page=<%= nextPage %>'>Next Page</a>
 </body>
 </html>

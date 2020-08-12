@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 <body>
 
     <%=title%>
     <a href="/food">Navbar</a>
+    
+   
+
 
     <form action="/food/results" method="POST">
         <label for="cityBox">Enter Your City:</label><br>
-        <input type="text" id="cityBox" name="cityBox"><br>
+        <input required type="text" id="cityBox" name="cityBox"><br>
         <input type="submit" value="Send City">
     </form>
+    <script>
+        var textBox = document.getElementById('cityBox')
+        console.log(textBox.value)
+    </script>
 
 </body>
 </html>
