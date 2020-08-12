@@ -3,25 +3,24 @@
     <%- include('../partials/logo') %>
     <%- include('../partials/search') %>
 </div>
-<main>
-    <div class="restaurant">
-        <div class="restImg">
-            <img src="/images/lunch.jpg">
+<main id="foodListings">
+    <h3>Top 10 Restaurants for <span style="text-transform:capitalize"><%= city %></span></h3>
+    <% restaurants.forEach(rest => { %>
+        <div class="restaurant">
+            <div class="restImg">
+                <img src="<%= rest.image_url %>">
+            </div>
+            <div class="restInfo">
+                <p class="restName"><%= rest.name %></p>
+                <p class="restAddress"><%= rest.location.address1 %> <%= rest.location.address2 %></p>
+                <p class="restAddress"><%= rest.location.address3 %></p>
+                <p class="restAddress"><%= rest.location.city %>, <%= rest.location.state %> <%= rest.location.zip_code %></p>
+                <p class="restPhone"><%= rest.display_phone %></p>
+                <a href="/food/location=<%=city%>/id=<%= rest.id %>"> <button class="restBtn">See More</button></a>
+            </div>
         </div>
-        <div class="restInfo">
-            <p class="restName">Jane's Cafe</p>
-            <p class="restAddress">123 Lane St.</p>
-            <p class="restPhone">888-555-0000</p>
-            <button class="restBtn">See More</button>
-        </div>
-    </div>
+    <% }) %>
 </main>
 
-    <h1>Top 10 Restaurants for <%=city%></h1>
-    <div>
-    <% restaurants.forEach(rest => { %>
-    <div><a href="/food/location=<%=city%>/id=<%= rest.id %>"><%= rest.name %> - <%= rest.distance %>m Away</a></div>
-    <% }) %>
-    </div>
 
 <%- include('../partials/footer') %>

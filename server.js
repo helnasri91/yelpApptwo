@@ -4,7 +4,8 @@ const PORT = process.env.PORT || 3030
 require('dotenv').config()
 const app = express();
 
-const foodListRouter = require('./routes/foodList')
+const foodListRouter = require('./routes/foodList');
+const router = require('./routes/foodList');
 //Add Router to Food List (By Zip)
 
 app.set('view engine', 'ejs');
