@@ -9,12 +9,12 @@
     <div class="restImg">
         <img src="<%= restaurant.image_url %>">
     </div>
-
+ 
     <div class="restInfo">
         <div class="restInfoCol">
             <h3 class="restName"><%= restaurant.name %></h3>
             <div class="restRating">
-                <% star = restaurant.rating %>
+                <% const star = restaurant.rating %>
                 <% for(i=1; i<=star; i++) { %>
                     <img class="restRatingStars" src="/images/star.svg">
                 <% } %>
@@ -28,9 +28,6 @@
         <div class="restInfoCol">
             <a href="<%= restaurant.url %>" target="_blank" rel="noopener noreferrer"><button class="restBtn">Order On Yelp</button></a>
         </div>
-
-    <a href='/'>Home</a>    <a href='/food/location=<%=city%>/page=<%=page%>'>Back to List</a>
-
     </div>
 
     <div class="foodImgCol">
