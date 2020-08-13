@@ -1,29 +1,29 @@
-<%- include('partials/header') %>
-<%- include('partials/logo') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+</head>
+<body>
 
-<main id="hero">
-    <div>
-        <h2>Eat Local</h2>
-        <form action="/food/results" method="POST">
-            <input type="text" placeholder="Enter Address..." id="cityBox" name="cityBox">
-            <button type="submit">&gt;</button>
-        </form>
-    </div>
-</main>
-
-<section id="about">
-    <div>
-        <p>Welcome to FoodVerse! The coronavirus pandemic has affected us all, including thousands of local restaurants and cafes. FoodVerse helps struggling local businesses by filtering out the bigger chain corporations for you and only presenting you with a curated list of locally-owned restaurants in your neighborhood. Think of us as the Yelp (we are using their API after all) for locally-owned restaurants. Bon appetit!</p>
-        <img src="/images/breakfast.jpg" style="width: 300px" alt="">
-    </div>
-    <div>
-        <img src="/images/dinner.jpg" style="width: 300px" alt="">
-        <p>FoodVerse is created by Gio, <a href="http://developergrace.com/" target="_blank" rel="noopener noreferrer">Grace</a>, and Hassan. We are web developers who met through the Snap Engineering Academy during the pandemic of 2020 that forced most of the nation to shut down. We wanted to help our favorite local restaurants and thought it would be a fantastic idea to develop an app that filters out big chains like Starbucks and Mcdonalds. We figure, if people want to eat there, they know where to find them. Independently-owned local restaurants that rely on word-of-mouth to drive business, not so much. This led to the birth of FoodVerse to help everyone indulge responsibly. In the immortal words of Uncle Ben: “With great power comes great responsibility.”</p>
-    </div>
-</section>
+    <%=title%>
+    <a href="/food">Navbar</a>
     
-<!-- <%=title%>
-<a href="/food">Navbar</a>
+   
+
+
+    <form action="/food/results" method="POST">
+        <label for="cityBox">Enter Your City:</label><br>
+        <input required type="text" id="cityBox" name="cityBox"><br>
+        <input type="submit" value="Send City">
+    </form>
+    <script>
+        var textBox = document.getElementById('cityBox')
+        console.log(textBox.value)
+    </script>
 
 <form action="/food/results" method="POST">
     <label for="cityBox">Enter Your City:</label><br>
