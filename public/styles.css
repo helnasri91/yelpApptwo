@@ -177,6 +177,7 @@ a:active {
 .restInfoCol {
     margin: 0 5px;
     position: relative;
+    width: 100%;
 }
 .restInfoCol:last-child {
     display: flex;
@@ -255,6 +256,7 @@ a:active {
 }
 .foodImg {
     width: 30%;
+    max-height: 300px;
     overflow: hidden;
     margin: 5px;
 }

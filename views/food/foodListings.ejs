@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-</head>
-<body>
-    <form action="/food/results" method="POST">
-        <label for="cityBox">Enter Your City:</label><br>
-        <input required type="text" id="cityBox" name="cityBox"><br>
-        <input type="submit" value="Send City">
-    </form>
-    <h1>Search Results for Restaurants for <%=city%></h1>
-    <p>Showing results <%= ((parseInt(page) -1) * 10)+1 %> through <%= ((parseInt(page) * 10) < data.total) ? (parseInt(page) * 10) : data.total %> out of <%= data.total %></p>
-    <div>
+<%- include('../partials/header') %>
+<div id="navBar">
+    <%- include('../partials/logo') %>
+    <%- include('../partials/search') %>
+</div>
+<main id="foodListings">
+    <h3>Top Restaurants in <span style="text-transform:capitalize"><%= city %></span></h3>
     <% restaurants.forEach(rest => { %>
         <div class="restaurant">
             <div class="restImg">
@@ -27,27 +17,32 @@
                     <p class="restAddress"><%= rest.location.address3 %></p>
                     <p class="restAddress"><%= rest.location.city %>, <%= rest.location.state %> <%= rest.location.zip_code %></p>
                     <p class="restPhone"><%= rest.display_phone %></p>
-                    <a href="/food/location=<%=city%>/id=<%= rest.id %>"> 
+                    <a href="/food/location=<%=city%>/page=<%= page %>/price=<%= price %>/id=<%= rest.id %>"> 
                 </div>
                 <div class="restInfoCol">
                     <button class="restBtn">See More</button></a>
                     <div class="restRating">
-                        <% star = rest.rating %>
+                        <% const star = rest.rating %>
                         <% for(i=1; i<=star; i++) { %>
                             <img class="restRatingStars" src="/images/star.svg">
                         <% } %>
                     </div>
+                    <p><%= rest.price %></p>
                 </div>
             </div>
         </div>
-    <div><a href="/food/location=<%= city %>/page=<%= page %>/id=<%= rest.id %>"><%= rest.name %> - <%= rest.distance %>m Away</a></div>
     <% }) %>
-    </div>
-    <br>
-    <% var lastPage = 1;  %>
-    <% if(parseInt(page) !== 1){ lastPage = page-1 } %>
-    <% var nextPage = parseInt(page) + 1 %>
-    <% if((parseInt(page) * 10) > data.total){ nextPage = page }              %>
-    <a href='/'>Home</a>    <a href='/food/location=<%=city%>/page=<%=lastPage%>'>Previous Page</a>   <a href='/food/location=<%=city%>/page=<%= nextPage %>'>Next Page</a>
-</body>
-</html>
+
+</main>
+
+<% var lastPage = 1  %>
+<% if(parseInt(page) !== 1){ lastPage = page-1 } %>
+<% var nextPage = parseInt(page) + 1 %>
+<% if((parseInt(page) * 10) > data.total){ nextPage = page } %>
+<div>
+    <a href='/food/location=<%=city%>/page=<%=lastPage %>/price=<%= price %>'>Previous Page</a>
+    <a href='/food/location=<%=city%>/page=<%= nextPage %>/price=<%= price %>'>Next Page</a>
+</div>
+
+
+<%- include('../partials/footer') %>
