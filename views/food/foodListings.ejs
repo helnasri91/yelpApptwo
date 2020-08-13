@@ -8,12 +8,7 @@
     <% restaurants.forEach(rest => { %>
         <div class="restaurant">
             <div class="restImg">
-                <% if(rest.image_url != "") { %>
-                    <img src="<%= rest.image_url %>">
-                <% } %>
-                <% else { %>
-                    <img src="/images/breakfast.jpg">
-                <% } %>
+                <img src="<%= rest.image_url %>">
             </div>
             <div class="restInfo">
                 <div class="restInfoCol">
@@ -25,14 +20,18 @@
                     <a href="/food/location=<%=city%>/page=<%= page %>/price=<%= price %>/id=<%= rest.id %>"> 
                 </div>
                 <div class="restInfoCol">
-                    <button class="restBtn">See More</button></a>
-                    <div class="restRating">
-                        <% const star = rest.rating %>
-                        <% for(i=1; i<=star; i++) { %>
-                            <img class="restRatingStars" src="/images/star.svg">
-                        <% } %>
-                    </div>
-                    <p><%= rest.price %></p>
+                    <div class="restInfoCol">
+                        <button class="restBtn">See More</button></a>
+                        <div class="restRating">
+                            <% const star = rest.rating %>
+                            <% for(i=1; i<=star; i++) { %>
+                                <img class="restRatingStars" src="/images/star.svg">
+                            <% } %>
+                        </div>
+                        <% const meters = rest.distance %>
+                        <% const miles = rest.distance * 0.00062 %>
+                        <p><%= rest.price %> | <%= miles.toFixed(1) %> miles</p>  
+                    </div>  
                 </div>
             </div>
         </div>
