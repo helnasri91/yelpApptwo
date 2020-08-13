@@ -43,7 +43,7 @@ a:active {
     top: 6px;
 }
 
-/* Hero Styles */
+/* Hero  & NavBar Styles */
 #hero {
     background-image: url(/images/lunch.jpg);
     background-size: cover;
@@ -67,6 +67,7 @@ a:active {
 }
 #hero h2 {
     margin: 0;
+    margin-bottom: 5px;
     font-size: 3.5em;
     color: white;
     text-align: center;
@@ -75,7 +76,6 @@ a:active {
 #hero form, #searchBar form {
     display: flex;
     justify-content: flex-start;
-    margin-top: 1.5%;
     box-shadow: -1px 1px 5px gray;
 }
 #hero form input, #searchBar input {
@@ -85,14 +85,17 @@ a:active {
     padding: 5px;
     border-bottom: 2px solid darkgray;
 }
-#searchBar {
-    position: absolute;
-    top: 5px;
-    right: 10px;
+#navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto 0;
+    width: 90%;
 }
-#searchBar input {
-    max-width: 300px;
-    margin-right: 0 !important;
+#searchBar {
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
 }
 #hero form button, #searchBar button {
     outline: none;
@@ -106,16 +109,8 @@ a:active {
     text-shadow: -2px 2px 2px gray;
     border-bottom: 2px solid darkred;
 }
-#searchBar button {
-    margin-left: 0 !important;
-}
 #hero form button:hover, #searchBar button:hover {
     background-color: #c14545;
-}
-#navBar {
-    /* display: flex;
-    justify-content: space-between; */
-    position: relative;
 }
 
 /* About Styles */
@@ -143,10 +138,20 @@ a:active {
     width: 90%;
     margin: 0 auto;
     font-size: 2em;
-    margin: 30px auto 0;
+    margin: 20px auto 0;
     border-top: 1px solid lightgray;
     padding-bottom: 5px;
     border-bottom: 1px solid lightgray;
+}
+.filters {
+    width: 90%;
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: space-around;
+}
+.filters button {
+    width: 25%;
+    cursor: pointer;
 }
 .restaurant {
     width: 90%;
@@ -155,6 +160,7 @@ a:active {
     flex-flow: column nowrap;
     align-items: flex-start;
     border: 1px solid lightgray;
+    box-shadow: -1px 1px 5px lightgray;
 }
 .restImg {
     width: 98%;
@@ -169,13 +175,14 @@ a:active {
     object-fit: cover;
 }
 .restInfo {
-    width: 100%;
+    width: 95%;
+    padding: 5px;
+    margin: 0 auto;
     position: relative;
     display: flex;
     justify-content: space-between;
 }
 .restInfoCol {
-    margin: 0 5px;
     position: relative;
     width: 100%;
 }
@@ -205,10 +212,6 @@ a:active {
     transition: .2s ease all;
     display: block;
     border-bottom: 2px solid darkred;
-    position: absolute;
-}
-#foodListings .restBtn {
-    right: 0;
 }
 .restBtn:hover {
     background-color: #c14545;
@@ -246,9 +249,6 @@ a:active {
 #foodShow h3 {
     font-size: 2.9em;
 }
-#foodShow .restBtn {
-
-}
 .foodImgCol {
     display: flex;
     flex-flow: row nowrap;
@@ -285,6 +285,16 @@ footer p {
 
 /* Media Queries */
 @media screen and (min-width: 700px) {
+    /* Hero & NavBar Styles */
+    #navBar {
+        width: 95%;
+    }
+    #searchBar {
+        width: 60%;
+    }
+    #searchBar input {
+        width: 100%;
+    }
     /* About Styles */
     #about div {
         max-width: 80%;
@@ -293,12 +303,12 @@ footer p {
     #about img {
         display: block;
     }
-    /* foodListings-Results Styles */
-    #foodListings .restBtn {
-        right: 5px;
-    }
 }
 @media screen and (min-width: 900px) {
+    /* Hero & NavBar Styles */
+    #navBar {
+        max-width: 95%;
+    }
     /* foodListings-Results Styles */
     #foodListings h3 {
         width: 95%;
@@ -307,12 +317,25 @@ footer p {
     .restaurant {
         width: 45%;
     }
-    #foodListings .restBtn {
-        right: 0;
-    }
 }
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1400px) {
     #about div {
         max-width: 60%;
+    }
+    /* Hero & NavBar Styles */
+    #navBar {
+        max-width: 75%;
+    }
+    /* foodListings-Results Styles */
+    #foodListings {
+        max-width: 75%;
+        margin: 0 auto;
+    }
+    #foodListings h3 {
+        margin-top: 20px;
+        width: 97%;
+    }
+    .restaurant {
+        width: 30%;
     }
 }

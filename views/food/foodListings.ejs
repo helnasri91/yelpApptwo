@@ -5,6 +5,12 @@
 </div>
 <main id="foodListings">
     <h3>Top Restaurants in <span style="text-transform:capitalize"><%= city %></span></h3>
+    <div class="filters">
+        <button>$</button>
+        <button>$$</button>
+        <button>$$$</button>
+        <button>$$$$</button>
+    </div>
     <% restaurants.forEach(rest => { %>
         <div class="restaurant">
             <div class="restImg">
@@ -20,18 +26,16 @@
                     <a href="/food/location=<%=city%>/page=<%= page %>/price=<%= price %>/id=<%= rest.id %>"> 
                 </div>
                 <div class="restInfoCol">
-                    <div class="restInfoCol">
-                        <button class="restBtn">See More</button></a>
-                        <div class="restRating">
-                            <% const star = rest.rating %>
-                            <% for(i=1; i<=star; i++) { %>
-                                <img class="restRatingStars" src="/images/star.svg">
-                            <% } %>
-                        </div>
-                        <% const meters = rest.distance %>
-                        <% const miles = rest.distance * 0.00062 %>
-                        <p><%= rest.price %> | <%= miles.toFixed(1) %> miles</p>  
-                    </div>  
+                    <button class="restBtn">See More</button></a>
+                    <div class="restRating">
+                        <% const star = rest.rating %>
+                        <% for(i=1; i<=star; i++) { %>
+                            <img class="restRatingStars" src="/images/star.svg">
+                        <% } %>
+                    </div>
+                    <% const meters = rest.distance %>
+                    <% const miles = rest.distance * 0.00062 %>
+                    <p><%= rest.price %> | <%= miles.toFixed(1) %> miles</p>  
                 </div>
             </div>
         </div>
