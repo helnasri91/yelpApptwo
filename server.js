@@ -2,7 +2,7 @@ const express = require('express');//Package express()
 const PORT = process.env.PORT || 3030
 
 require('dotenv').config()
-const firebase = require('./config/firebase')
+//const firebase = require('./config/firebase')
 
 const app = express();
 
