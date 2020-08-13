@@ -2,10 +2,12 @@ const express = require('express');//Package express()
 const PORT = process.env.PORT || 3030
 
 require('dotenv').config()
+const firebase = require('./config/firebase')
+
 const app = express();
 
-const foodListRouter = require('./routes/foodList');
-const router = require('./routes/foodList');
+const foodListRouter = require('./routes/foodRouter');
+const { auth } = require('firebase');
 //Add Router to Food List (By Zip)
 
 app.set('view engine', 'ejs');
@@ -23,6 +25,19 @@ app.use(express.static('public'));
 app.get('/', (req, res, next) => {
 	res.render('index', { title: 'Local Restaraunt!!! Enter Zip' });
 });
+
+//Impliment this partial to use sign in -  <%- include('signup/index') %>
+app.post('/signup', (req, res, next) => {
+console.log(req.body)
+firebase.doCreateUserWithEmailAndPassword(req.body.email, req.body.password)
+	.then(authUser => {
+		console.log(authUser)
+	}).catch(err => {
+		req.app.locals.err = err.message
+		res.redirect('/')
+	})
+
+})
 
 app.use('/food', foodListRouter);
 //app.use('/user/food', userRouter) - when a user would look food up
