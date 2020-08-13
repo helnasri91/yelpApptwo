@@ -83,6 +83,7 @@ a:active {
     border: none;
     outline: none;
     padding: 5px;
+    border-bottom: 2px solid darkgray;
 }
 #searchBar {
     position: absolute;
@@ -103,9 +104,9 @@ a:active {
     cursor: pointer;
     transition: .2s ease all;
     text-shadow: -2px 2px 2px gray;
+    border-bottom: 2px solid darkred;
 }
 #searchBar button {
-    border: 1px solid #F25757;
     margin-left: 0 !important;
 }
 #hero form button:hover, #searchBar button:hover {
@@ -133,7 +134,7 @@ a:active {
     display: none;
 }
 
-/* Results Styles */
+/* foodListings-Results Styles */
 #foodListings {
     display: flex;
     flex-flow: row wrap;
@@ -147,13 +148,6 @@ a:active {
     padding-bottom: 5px;
     border-bottom: 1px solid lightgray;
 }
-/* .restaurant {
-    width: 90%;
-    margin: 25px auto;
-    display: flex;
-    align-items: center;
-    border: 1px solid lightgray;
-} */
 .restaurant {
     width: 90%;
     margin: 25px auto;
@@ -162,12 +156,6 @@ a:active {
     align-items: flex-start;
     border: 1px solid lightgray;
 }
-/* .restImg {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    margin: 5px;
-} */
 .restImg {
     width: 98%;
     height: 250px;
@@ -180,15 +168,21 @@ a:active {
     display: block;
     object-fit: cover;
 }
-/* .restInfo {
-    width: 80%;
-    margin-left: 20px;
-    margin-bottom: 5px;
-} */
 .restInfo {
     width: 100%;
-    margin: 0 10px 10px;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.restInfoCol {
+    margin: 0 5px;
+    position: relative;
+}
+.restInfoCol:last-child {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 .restName {
     font-weight: bold;
@@ -208,12 +202,67 @@ a:active {
     padding: 5px 10px;
     cursor: pointer;
     transition: .2s ease all;
+    display: block;
+    border-bottom: 2px solid darkred;
     position: absolute;
-    right: 20px; 
-    top: 5px;
+}
+#foodListings .restBtn {
+    right: 0;
 }
 .restBtn:hover {
     background-color: #c14545;
+}
+.restBtn:active {
+    border: none;
+    top: 2px;
+}
+.restRating {
+    display: inline;
+}
+.restRatingStars {
+    width: 20px;
+}
+#foodListings .restRatingStars {
+    margin-top: 50px;
+}
+
+/* foodShow-Individual Page Styles */
+#foodShow .restImg {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+#foodShow .restImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+#foodShow .restInfo {
+    font-size: 1.1em;
+}
+#foodShow h3 {
+    font-size: 2.9em;
+}
+#foodShow .restBtn {
+
+}
+.foodImgCol {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.foodImg {
+    width: 30%;
+    overflow: hidden;
+    margin: 5px;
+}
+.foodImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
 }
 
 /* Footer Styles */
@@ -242,9 +291,13 @@ footer p {
     #about img {
         display: block;
     }
+    /* foodListings-Results Styles */
+    #foodListings .restBtn {
+        right: 5px;
+    }
 }
 @media screen and (min-width: 900px) {
-    /* Results Styles */
+    /* foodListings-Results Styles */
     #foodListings h3 {
         width: 95%;
         text-align: center;
@@ -252,8 +305,8 @@ footer p {
     .restaurant {
         width: 45%;
     }
-    .restBtn {
-        right: 15px;
+    #foodListings .restBtn {
+        right: 0;
     }
 }
 @media screen and (min-width: 1500px) {
