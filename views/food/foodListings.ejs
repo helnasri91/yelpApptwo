@@ -16,6 +16,30 @@
     <p>Showing results <%= ((parseInt(page) -1) * 10)+1 %> through <%= ((parseInt(page) * 10) < data.total) ? (parseInt(page) * 10) : data.total %> out of <%= data.total %></p>
     <div>
     <% restaurants.forEach(rest => { %>
+        <div class="restaurant">
+            <div class="restImg">
+                <img src="<%= rest.image_url %>">
+            </div>
+            <div class="restInfo">
+                <div class="restInfoCol">
+                    <p class="restName"><%= rest.name %></p>
+                    <p class="restAddress"><%= rest.location.address1 %> <%= rest.location.address2 %></p>
+                    <p class="restAddress"><%= rest.location.address3 %></p>
+                    <p class="restAddress"><%= rest.location.city %>, <%= rest.location.state %> <%= rest.location.zip_code %></p>
+                    <p class="restPhone"><%= rest.display_phone %></p>
+                    <a href="/food/location=<%=city%>/id=<%= rest.id %>"> 
+                </div>
+                <div class="restInfoCol">
+                    <button class="restBtn">See More</button></a>
+                    <div class="restRating">
+                        <% star = rest.rating %>
+                        <% for(i=1; i<=star; i++) { %>
+                            <img class="restRatingStars" src="/images/star.svg">
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div><a href="/food/location=<%= city %>/page=<%= page %>/id=<%= rest.id %>"><%= rest.name %> - <%= rest.distance %>m Away</a></div>
     <% }) %>
     </div>
