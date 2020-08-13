@@ -8,7 +8,12 @@
     <% restaurants.forEach(rest => { %>
         <div class="restaurant">
             <div class="restImg">
-                <img src="<%= rest.image_url %>">
+                <% if(rest.image_url != "") { %>
+                    <img src="<%= rest.image_url %>">
+                <% } %>
+                <% else { %>
+                    <img src="/images/breakfast.jpg">
+                <% } %>
             </div>
             <div class="restInfo">
                 <div class="restInfoCol">
