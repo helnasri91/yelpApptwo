@@ -166,10 +166,7 @@ router.get('/location=:city/price=:price/id=:id', async (req, res) => {
                     location: restaurant.location,
                     reviews: reviews.data.reviews
                 })
-            })
-        
-        })      
-    
+              
     }catch (err){
         console.log(err);
         res.redirect('/')
