@@ -150,14 +150,41 @@ router.get('/location=:city/page=:page/price=:price/id=:id', async (req, res) =>
     };
     try {
         const { data: restaurant } = await axios(config)
+        var configTwo = {
+            method:'get',
+            url: `https://api.yelp.com/v3/businesses/${req.params.id}/reviews`,
+            headers: {
+                'Authorization': `Bearer ${YELP_API_KEY}`
+            }
+        };
+            try {
+                const { data: reviews } = await axios(configTwo)
+                res.render("food/foodShow", {
+                    restaurant,
+                    price: req.params.price,
+                    id: req.params.id,
+                    page: req.params.page,
+                    city: req.params.city,
+                    location: restaurant.location,
+                    reviews
+                })
+            }catch (err){
+                console.log(err);
+                res.redirect('/')
+        }
         //console.log(restaurant) // This is the Restaurant info in Json format!!!
+        /*
         res.render("food/foodShow", {
             restaurant,
             price: req.params.price,
             id: req.params.id,
             page: req.params.page,
             city: req.params.city,
+
+            location: restaurant.location,
+            reviews
         })
+        */
     }catch (err){
         console.log(err);
         res.redirect('/')
