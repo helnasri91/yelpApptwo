@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
-<div id="navBar">
+<nav id="navBar">
     <%- include('../partials/logo') %>
     <%- include('../partials/search') %>
-</div>
+</nav>
 <main id="foodListings">
     <h3>Top Restaurants in <span style="text-transform:capitalize"><%= city %></span></h3>
-    <div class="filters">
-        <button>$</button>
-        <button>$$</button>
-        <button>$$$</button>
-        <button>$$$$</button>
-    </div>
+    <form class="filters" method="GET" action="">
+        <button type="submit" id="price" name="price" value="low">$</button>
+        <button type="submit">$$</button>
+        <button type="submit">$$$</button>
+        <button type="submit">$$$$</button>
+    </form>
     <% restaurants.forEach(rest => { %>
         <div class="restaurant">
             <div class="restImg">
