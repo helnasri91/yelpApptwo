@@ -127,6 +127,8 @@ router.get('/location=:city/price=:price', async (req, res) => {
         res.redirect('/')
     })
 
+
+
 })
 
 
@@ -141,43 +143,33 @@ router.get('/location=:city/price=:price/id=:id', async (req, res) => {
             'Authorization': `Bearer ${YELP_API_KEY}`
         }
     };
+    var configTwo = {
+        method:'get',
+        url: `https://api.yelp.com/v3/businesses/${req.params.id}/reviews`,
+        headers: {
+            'Authorization': `Bearer ${YELP_API_KEY}`
+        }
+    };
     try {
-        const { data: restaurant } = await axios(config)
-        var configTwo = {
-            method:'get',
-            url: `https://api.yelp.com/v3/businesses/${req.params.id}/reviews`,
-            headers: {
-                'Authorization': `Bearer ${YELP_API_KEY}`
-            }
-        };
-            try {
-                const { data: reviews } = await axios(configTwo)
+        
+        axios(config)
+        .then((restaurant) => {
+            //restaurant
+            axios(configTwo)
+            .then((reviews) => {
                 res.render("food/foodShow", {
-                    restaurant,
+                    restaurant: restaurant.data,
                     price: req.params.price,
                     id: req.params.id,
                     page: req.params.page,
                     city: req.params.city,
                     location: restaurant.location,
-                    reviews
+                    reviews: reviews.data.reviews
                 })
-            }catch (err){
-                console.log(err);
-                res.redirect('/')
-        }
-        //console.log(restaurant) // This is the Restaurant info in Json format!!!
-        /*
-        res.render("food/foodShow", {
-            restaurant,
-            price: req.params.price,
-            id: req.params.id,
-            page: req.params.page,
-            city: req.params.city,
-
-            location: restaurant.location,
-            reviews
-        })
-        */
+            })
+        
+        })      
+    
     }catch (err){
         console.log(err);
         res.redirect('/')
