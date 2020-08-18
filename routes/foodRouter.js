@@ -180,7 +180,6 @@ router.get('/location=:city/page=:page/price=:price/id=:id', async (req, res) =>
             id: req.params.id,
             page: req.params.page,
             city: req.params.city,
-
             location: restaurant.location,
             reviews
         })
