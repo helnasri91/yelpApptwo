@@ -26,32 +26,25 @@ const chainCompanies = [ "Fatburger" , "WaBa Grill" , "Piara Pizza" , "Wienersch
     
     --Total Failures
    -
-   -
-
 
    --Other
    -Rally's
    -
 */
 
-
-//--sweetAlert??
-//const { default: swal } = require('sweetalert');
 //---Yelp Endpoints can be found at this link:
 //---https://www.yelp.com/developers/documentation/v3/business_search
-//Handles a "/food" case, redirects back home 
-//Handles a "/food/location=" case, with an empty "city" key, returns back home
+
 router.get('/', (req, res, next) => { res.redirect('/')})
-router.get('/location=', (req, res) => { res.redirect('/')})
-//After User input, redirects to search results with location info in the URL
+router.get('/location=', (req, res) => { res.redirect('/')}) 
 router.post('/results', (req, res) => { 
     if(!req.body.cityBox){throw new Error("No Location Specified")} // -- Throws error if search box was left blank
     res.redirect(`/food/location=${req.body.cityBox}`)              // -- Redirects below, to add a page term.  
 });
-//This lets the user type in a URL of "/food/location=NAME" and sends them to page one of their search results
-//Also defaults their search to no price filter, with price=all
-router.get('/location=:city', (req, res) => { res.redirect(`/food/location=${req.params.city}/page=1/price=all`) })
-router.get('/location=:city/page=:page', (req, res) => { res.redirect(`/food/location=${req.params.city}/page=${req.params.page}/price=all`) })
+
+//This lets the user type in a URL of "/food/location=NAME" and sends them to their search results with price=all
+router.get('/location=:city', (req, res) => { res.redirect(`/food/location=${req.params.city}/price=all`) })
+
 /* ---- LISTING API CALL ----
     --- Makes an API call to yelp taking in the "city" URL param, and calcuates an offset value for page mechanic "listingOffSet"
     --- Sends back an object response.data, and within response.data.buisnesses is an object that has the current list of 10 listings
@@ -62,7 +55,7 @@ router.get('/location=:city/page=:page', (req, res) => { res.redirect(`/food/loc
     - Make a seperate API call to handle both above cases ^^
 */
 
-router.get('/location=:city/page=:page/price=:price', async (req, res) => { 
+router.get('/location=:city/price=:price', async (req, res) => { 
     const { city,page,price } = req.params //Grabs these items from the URL
     
     var priceFilter = 0; 
@@ -138,7 +131,7 @@ router.get('/location=:city/page=:page/price=:price', async (req, res) => {
 
 
 //API call to get food place info by ID
-router.get('/location=:city/page=:page/price=:price/id=:id', async (req, res) => {
+router.get('/location=:city/price=:price/id=:id', async (req, res) => {
     console.log(req.params.id + " " + req.params.city)
     const { id } = req.params
     var config = {
