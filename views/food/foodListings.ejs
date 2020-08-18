@@ -43,14 +43,4 @@
 
 </main>
 
-<% var lastPage = 1  %>
-<% if(parseInt(page) !== 1){ lastPage = page-1 } %>
-<% var nextPage = parseInt(page) + 1 %>
-<% if((parseInt(page) * 10) > data.total){ nextPage = page } %>
-<div>
-    <a href='/food/location=<%=city%>/page=<%=lastPage %>/price=<%= price %>'>Previous Page</a>
-    <a href='/food/location=<%=city%>/page=<%= nextPage %>/price=<%= price %>'>Next Page</a>
-</div>
-
-
 <%- include('../partials/footer') %>
