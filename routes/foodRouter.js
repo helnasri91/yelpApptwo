@@ -111,9 +111,9 @@ router.get('/location=:city/page=:page/price=:price', async (req, res) => {
         .then((response) => {
             const { data: { businesses }} = response
 
-            // Concatenate both arrays and store the result
+            // Concatenate both arrays and store the result (firstRestaurants and second api response are put together into total results)
             var totalResults = firstRestaurants.concat(businesses)
-            var adjustedResults = totalResults.filter( element => { 
+            var adjustedResults = totalResults.filter( element => {  // -- Filters to whether or not the code is in the chainCompanies Array
                 return !chainCompanies.includes(element.name)
                 console.log(element.name) 
                 console.log(!chainCompanies.includes(element.name))
