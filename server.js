@@ -21,7 +21,6 @@ app.use(express.static('public'));
 // 	res.send('Hello');
 // });
 
-
 app.get('/', (req, res, next) => {
 	res.render('index', { title: 'Local Restaraunt!!! Enter Zip' });
 });

@@ -35,6 +35,10 @@ const chainCompanies = [ "Fatburger" , "WaBa Grill" , "Piara Pizza" , "Wienersch
 //---Yelp Endpoints can be found at this link:
 //---https://www.yelp.com/developers/documentation/v3/business_search
 
+
+
+
+
 router.get('/', (req, res, next) => { res.redirect('/')})
 router.get('/location=', (req, res) => { res.redirect('/')}) 
 router.post('/results', (req, res) => { 
@@ -166,11 +170,12 @@ router.get('/location=:city/price=:price/id=:id', async (req, res) => {
                     location: restaurant.location,
                     reviews: reviews.data.reviews
                 })
-              
-    }catch (err){
+            })
+        })
+    }catch(err){
         console.log(err);
         res.redirect('/')
-    }
+        }
 })
 
 module.exports = router;

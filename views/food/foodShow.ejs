@@ -40,13 +40,6 @@
         </div>
     </div>
 
-    <div class="foodImgCol">
-        <% restaurant.photos.forEach(url => { %>
-            <div class="foodImg">
-                <a href="<%= url %>" target="_blank" rel="noopener noreferrer"><img src="<%= url %>"></a>
-            </div>
-        <% }) %>
-    </div>
 
     <div class="restReviews">
         <p><%= reviews[0].text %></p>
