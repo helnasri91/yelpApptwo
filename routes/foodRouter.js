@@ -172,7 +172,8 @@ router.get('/location=:city/price=:price/id=:id', async (req, res) => {
                 })
             })
         })
-    }catch(err){
+              
+    }catch (err){
         console.log(err);
         res.redirect('/')
         }
