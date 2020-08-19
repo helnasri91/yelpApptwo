@@ -2,7 +2,7 @@
 const screenWidth = window.innerWidth;
 const logos = document.querySelectorAll(".logo_name");
 
-changeLogo();
+// changeLogo();
 
 function changeLogo() {
     const screenWidth = window.innerWidth;
@@ -17,7 +17,7 @@ function changeLogo() {
     }
 }
 
-window.addEventListener("resize", changeLogo);
+// window.addEventListener("resize", changeLogo);
 
 // // Rotating Hero Image
 // const bgImg = ['/images/breakfast.jpg)', '/images/lunch.jpg)', '/images/dinner.jpg)'];

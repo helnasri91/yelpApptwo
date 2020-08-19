@@ -8,28 +8,42 @@ const { YELP_API_KEY } = process.env
 // -- https://www.restaurantbusinessonline.com/top-500-chains?year=2020&page=2#data-table
 const chainCompanies = [ "Fatburger" , "WaBa Grill" , "Piara Pizza" , "Wienerschnitzel" , "Ono Hawaiian BBQ" , "Chuck E. Cheese" , "EveryTable" , "Yoshinoya" , "Pizzaroni", "" , 
 "Winchell's Donuts" , " " , "McDonald's" , "Starbucks" , "Chick-fil-A" , "Taco Bell" , "Burger King" , "Subway" , "Wendy's" , "Dunkin" , "Domino's Pizza" , "Rally's" ,
-"Panera Bread" , "Pizza Hut" , "Chipotle Mexican Grill" , "Sonic Drive-In" , "KFC" , "Olive Garden" , "Applebee's" , "Panda Express" , "Arby's" , "Popeyes Louisiana Kitchen" ,
-"Little Caesars Pizza" , "Dairy Queen" , "Buffalo Wild Wings" , "Chili's Grill & Bar" , "Jack in the Box" , "IHOP" , "Texas Roadhouse" , "Denny's" ,"Papa John's Pizza" , "Outback Steakhouse" ,
-"Whataburger" , "Red Lobster" , "Cracker Barrel" , "The Cheesecake Factory" , "Jimmy John's" , "Hardee's" , "Zaxby's" , "LongHorn Steakhouse" , "Culver's" , "Golden Corral" ,
-"Five Guys Burgers and Fries" , "Red Robin Gourmet Burgers and Brews" , "Raising Cane's Chicken Fingers" , "Carl's Jr" , "Wingstop" , "Waffle House" , "Jersey Mike's Subs" , "Bojangles'" , 
-"BJ's Restaurant & Brewhouse" , "TGI Fridays" , "In-N-Out Burger" ,"Steak 'n Shake" , "P.F. Chang's" , "Qdoba Mexican Eats", "El Pollo Loco" , "Krispy Kreme" , "Hooters",  "Del Taco",  "Firehouse Subs",
+"Panera Bread" , "Pizza Hut" , "Chipotle Mexican Grill" , "Sonic Drive-In" , "KFC" , "Olive Garden" , "Olive Garden Italian Restaurant", "Applebee's" , "Applebee's Grill + Bar", "Panda Express" , "Arby's" , "Popeyes Louisiana Kitchen" ,
+"Little Caesars Pizza" , "Little Caesers Pizza", "Dairy Queen" , "Dairy Queen Orange Julius", "Buffalo Wild Wings" , "Chili's Grill & Bar" , "Chili's", "Jack in the Box" , "IHOP" , "Texas Roadhouse" , "Denny's" ,"Papa John's Pizza" , "Outback Steakhouse" ,
+"Whataburger" , "Red Lobster" , "Cracker Barrel" , "The Cheesecake Factory" , "Jimmy John's" , "Hardee's" , "Zaxby's" , "LongHorn Steakhouse" , "Culver's" , "Golden Corral" , "Five Guys", 
+"Five Guys Burgers and Fries" , "Red Robin Gourmet Burgers and Brews" , "Raising Cane's Chicken Fingers" , "Carl's Jr" , "Carl's Jr.", "Wingstop" , "Waffle House" , "Jersey Mike's Subs" , "Bojangles'" , "Bojangles Famous Chicken & Biscuits",
+"BJ's Restaurant & Brewhouse" , "TGI Fridays" , "In-N-Out Burger" ,"Steak 'n Shake" , "P.F. Chang's" , "Qdoba Mexican Eats", "QDOBA Mexican Eats", "El Pollo Loco" , "Krispy Kreme" , "Hooters",  "Del Taco",  "Firehouse Subs",
 "Bob Evans",  "Moe's Southwest Grill",  "Papa Murphy's Pizza" ,"Ruby Tuesday",  "McAlister's Deli" , "Cheddar's Scratch Kitchen", "Church's Chicken", "Tim Hortons", "Ruth's Chris Steak House", 
 "Carrabba's Italian Grill", "Jason's Deli", "Marco's Pizza", "Shake Shack", "California Pizza Kitchen", "Baskin-Robbins", "Yard House", "Bonefish Grill", "White Castle", "Tropical Smoothie Cafe", 
 "Dave & Buster's", "Dutch Bros. Coffee", "Captain D's Seafood Kitchen", "Auntie Anne's", "First Watch", "Perkins Restaurant & Bakery", "Freddy's Frozen Custard & Steakburgers", 
-"Checkers Drive-In Restaurants", "Noodles & Company" , "Einstein Bros. Bagels" , "Jamba" , "Portillo's" , "Boston Market" , "The Habit Burger Grill" , "Logan's Roadhouse" , "MOD Pizza" , "Smoothie King" ,
-"Mellow Mushroom" , "The Capital Grille" , "Round Table Pizza" , "Miller's Ale House" , "Potbelly sandwich Shop" , "Hungry Howie's Pizza" ]
+"Checkers Drive-In Restaurants", "Noodles & Company" , "Einstein Bros. Bagels" , "Einstein Bros Bagels", "Jamba" , "Portillo's" , "Boston Market" , "The Habit Burger Grill" , "Logan's Roadhouse" , "MOD Pizza" , "Smoothie King" ,
+"Mellow Mushroom" , "The Capital Grille" , "Round Table Pizza" , "Miller's Ale House" , "Potbelly sandwich Shop" , "Hungry Howie's Pizza", "Lee's Sandwiches", "Jollibee", "Flame Broiler", "The Flame Broiler", "Blaze Fast-Fire'd Pizza", "L&L Hawaiian Barbecue", "Dickey's Barbecue Pit", "Louisiana Famous Fried Chicken" , "Sarku Japan" , "Sbarro", "Cinnabon", "Steak Escape", "A&W", "Wahoo's Fish Tacos", "QuikTrip", "Mazzio's Pizza", "sweetgreen", "Sweetgreen", "Luna Grill", "Uncle Tetsu", "Burgerim", "BurgerIM"]
 
 /* -- Throwing all Failures Here
     --Partial Faliure Cases
     -Yoshinoya Compton & Alameda 
     -Pizzaroni - Lynwood
+    -Steak Escape Los Cerritos Mall
+    -Chick-fil-A - Belmar
+    -Luna Grill - Torrance
+
+
     
     --Total Failures
    -
 
    --Other
    -Rally's
-   -
+   -Carl's Jr vs Carl's Jr.
+   -Einstein Bros Bagels vs Einstein Bros. Bagels
+   -Olive Garden Italian Restaurant vs Olive Garden
+   -Chili's vs Chili's Grill & Bar
+   -Qdboba vs QDOBA (caps)
+   -The Flame Broiler vs Flame Broiler (first 10 wouldn't work in this case)
+   -Little Caesers Pizza vs Little Caesars Pizza (spelling errors; first 10 may not work in these instances either)
+   -Bojangles' vs Bojangles Famous Chicken & Biscuits
+   -Applebee's vs Applebee's Grill + Bar
+   -Five Guys Burgers and Fries vs Five Guys
 */
 
 //---Yelp Endpoints can be found at this link:
@@ -66,7 +80,7 @@ router.get('/location=:city/price=:price', async (req, res) => {
         priceFilter = 2;
     }else if(price === "high"){ // ---------- // This Chain of if statements gets the price filter from the user choice in the url
         priceFilter = 3;
-    }else if(price === "fancy"){
+    }else if(price === "ultraHigh"){
         priceFilter = 4;
     } // -- Add a case for price="any" so user cant enter any string
 

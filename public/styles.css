@@ -21,6 +21,18 @@ a:active {
     display: inline-block;
     top: 5px;
 }
+.logo_mobile {
+    display: none;
+}
+.logo_full {
+    display: block;
+}
+#navBar .logo_mobile {
+    display: block;
+}
+#navBar .logo_full {
+    display: none;
+}
 .logo_name {
     font-family: 'Black Han Sans', sans-serif;
     font-size: 2rem;
@@ -141,6 +153,7 @@ a:active {
     margin: 20px auto 0;
     border-top: 1px solid lightgray;
     padding-bottom: 5px;
+    text-align: center;
     border-bottom: 1px solid lightgray;
 }
 .filters {
@@ -149,7 +162,8 @@ a:active {
     display: flex;
     justify-content: space-around;
 }
-.filters button {
+.filters a {
+    text-align: center;
     width: 25%;
     cursor: pointer;
     padding: 10px;
@@ -162,13 +176,21 @@ a:active {
     transition: .2s ease all;
     border-radius: 3px;
 }
-.filters button:hover {
+.filters a:hover {
     background-color: #fcc162;
     border-bottom: 2px solid #ff5000;
 }
-.filters button:active {
-
+.filters a:active, .active {
+    background-color: #F25757 !important;
+    border-bottom: 2px solid darkred !important;
 }
+
+#clearFilters {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+
 .restaurant {
     width: 90%;
     margin: 25px auto;
@@ -216,17 +238,26 @@ a:active {
 .restAddress {
     margin: 0;
 }
-.restBtn {
+.restBtn, .recBtn {
     outline: none;
     border: none;
     border-radius: 3px;
-    background-color: #F25757;
-    color: white;
     font-size: 1em;
     padding: 5px 10px;
     cursor: pointer;
     transition: .2s ease all;
     display: block;
+
+}
+.recBtn {
+    background-color: #fcc162;
+    color: black;
+    border-bottom: 2px solid orange;
+
+}
+.restBtn {
+    background-color: #F25757;
+    color: white;
     border-bottom: 2px solid darkred;
     position: absolute;
     right: 0;
@@ -304,6 +335,12 @@ footer p {
 /* Media Queries */
 @media screen and (min-width: 500px) {
     /* Hero & NavBar Styles */
+    #navBar .logo_mobile {
+        display: none;
+    }
+    #navBar .logo_full {
+        display: block;
+    }
     #hero div {
         position: absolute;
         top: 20%;
