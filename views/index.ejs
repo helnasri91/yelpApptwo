@@ -1,28 +1,27 @@
 <%- include('partials/header') %>
-<header>
-    <%- include('partials/logo') %>
-</header>
+<%- include('partials/nav') %>
 
-<main id="hero">
-    
-    <div>
-        <h2>Eat Local</h2>
-        <form action="/food/results" method="POST">
-            <input type="text" placeholder="Enter Address..." id="cityBox" name="cityBox">
-            <button type="submit">&gt;</button>
-        </form>
-    </div>
+<main>
+    <section id="hero">
+        <div>
+            <h2>Eat Local</h2>
+            <form action="/food/results" method="POST">
+                <input type="text" placeholder="Enter Address..." id="cityBox" name="cityBox">
+                <button type="submit">&gt;</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="about">
+        <div>
+            <p>Welcome to FoodVerse! The coronavirus pandemic has affected us all, including thousands of local restaurants and cafes. FoodVerse helps struggling local businesses by filtering out the bigger chain corporations for you and only presenting you with a curated list of locally-owned restaurants in your neighborhood. Think of us as the Yelp (we are using their API after all) for locally-owned restaurants. Bon appetit!</p>
+            <img src="/images/breakfast.jpg" style="width: 300px" alt="">
+        </div>
+        <div>
+            <img src="/images/dinner.jpg" style="width: 300px" alt="">
+            <p>FoodVerse is created by Gio, <a href="http://developergrace.com/" target="_blank" rel="noopener noreferrer">Grace</a>, and <a href="https://github.com/helnasri91">Hassan</a>. We are web developers who met through the Snap Engineering Academy during the pandemic of 2020 that forced most of the nation to shut down. We wanted to help our favorite local restaurants and thought it would be a fantastic idea to develop an app that filters out big chains like Starbucks and Mcdonalds. We figure, if people want to eat there, they know where to find them. Independently-owned local restaurants that rely on word-of-mouth to drive business, not so much. This led to the birth of FoodVerse to help everyone indulge responsibly. In the immortal words of Uncle Ben: “With great power comes great responsibility.”</p>
+        </div>
+    </section>
 </main>
-
-<section id="about">
-    <div>
-        <p>Welcome to FoodVerse! The coronavirus pandemic has affected us all, including thousands of local restaurants and cafes. FoodVerse helps struggling local businesses by filtering out the bigger chain corporations for you and only presenting you with a curated list of locally-owned restaurants in your neighborhood. Think of us as the Yelp (we are using their API after all) for locally-owned restaurants. Bon appetit!</p>
-        <img src="/images/breakfast.jpg" style="width: 300px" alt="">
-    </div>
-    <div>
-        <img src="/images/dinner.jpg" style="width: 300px" alt="">
-        <p>FoodVerse is created by Gio, <a href="http://developergrace.com/" target="_blank" rel="noopener noreferrer">Grace</a>, and <a href="https://github.com/helnasri91">Hassan</a>. We are web developers who met through the Snap Engineering Academy during the pandemic of 2020 that forced most of the nation to shut down. We wanted to help our favorite local restaurants and thought it would be a fantastic idea to develop an app that filters out big chains like Starbucks and Mcdonalds. We figure, if people want to eat there, they know where to find them. Independently-owned local restaurants that rely on word-of-mouth to drive business, not so much. This led to the birth of FoodVerse to help everyone indulge responsibly. In the immortal words of Uncle Ben: “With great power comes great responsibility.”</p>
-    </div>
-</section>
 
 <%- include('partials/footer') %> 

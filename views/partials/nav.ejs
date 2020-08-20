@@ -1,22 +1,21 @@
-<nav id="navBar">
-    <i class="fas fa-search"></i>
-    <div id="searchBar">
-        <form action="/food/results" method="POST">
-            <input type="text" placeholder="Enter Address..." name="cityBox">
-            <button type="submit">&gt;</button>
-        </form>
-    </div>
-
-    <i class="fas fa-filter"></i>
-    <div id="filterMenu">
-        <div class="filters">
-            <a href="/food/location=<%= city %>/price=low" class="<%= price==='low' ? 'active' : '' %>">$</a>
-            <a href="/food/location=<%= city %>/price=med" class="<%= price==='med' ? 'active' : '' %>">$$</a>
-            <a href="/food/location=<%= city %>/price=high" class="<%= price==='high' ? 'active' : '' %>">$$$</a>
-            <a href="/food/location=<%= city %>/price=ultraHigh" class="<%= price==='ultraHigh' ? 'active' : '' %>">$$$$</a>
+<header>
+    <a href="/">
+        <div id="logo">
+            <div class="logo_name"><span class="logo_mobile">FV</span><span class="logo_full">FoodVerse</span></div>
+            <div class="logo_name"><span class="logo_mobile">FV</span><span class="logo_full">FoodVerse</span></div>
+            <div class="logo_name"><span class="logo_mobile">FV</span><span class="logo_full">FoodVerse</span></div>
         </div>
-        <a href="/food/location=<%= city %>/price=all" id="clearFilters">Clear Filter</a>
-    </div>
+    </a>
 
-    <i class="fas fa-users"></i>
-</nav>
+    <nav id="navBar">
+        <i class="fas fa-search"></i>
+        <div id="searchBar">
+            <form action="/food/results" method="POST">
+                <input type="text" placeholder="Enter Address..." name="cityBox">
+                <button type="submit">&gt;</button>
+            </form>
+        </div>
+
+        <a href="/suggested"><i class="fas fa-users"></i></a>
+    </nav>
+</header>

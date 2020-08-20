@@ -1,8 +1,14 @@
 <%- include('../partials/header') %>
-<header>
-    <%- include('../partials/logo') %>
-    <%- include('../partials/nav') %>
-</header>
+<%- include('../partials/nav') %>
+
+<a id="top"></a>
+<div class="filters">
+    <a href="/food/location=<%= city %>/price=low" class="<%= price==='low' ? 'active' : '' %>">$</a>
+    <a href="/food/location=<%= city %>/price=med" class="<%= price==='med' ? 'active' : '' %>">$$</a>
+    <a href="/food/location=<%= city %>/price=high" class="<%= price==='high' ? 'active' : '' %>">$$$</a>
+    <a href="/food/location=<%= city %>/price=ultraHigh" class="<%= price==='ultraHigh' ? 'active' : '' %>">$$$$</a>
+</div>
+<a href="/food/location=<%= city %>/price=all" id="clearFilters">Clear Filter</a>
 
 <main id="foodListings">
     <h3>Top Restaurants in <span style="text-transform:capitalize"><%= city %></span></h3>
@@ -13,22 +19,20 @@
                 <% if(rest.image_url){%>
                     <img src="<%= rest.image_url %>">
                     <%}else{%>
-                    <img src="https://images.unsplash.com/photo-1575833947349-69324d765146?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"> 
+                    <img src="https://images.unsplash.com/photo-1575833947349-69324d765146"> 
                     <%}%> 
             </div>
             <div class="restInfo">
                 <div class="restInfoCol">
                     <p class="restName"><%= rest.name %></p>
-                    <p class="restAddress"><%= rest.location.address1 %> <%= rest.location.address2 %></p>å
+                    <p class="restAddress"><%= rest.location.address1 %> <%= rest.location.address2 %></p>
                     <p class="restAddress"><%= rest.location.address3 %></p>
                     <p class="restAddress"><%= rest.location.city %>, <%= rest.location.state %> <%= rest.location.zip_code %></p>
                     <a href="tel:<%= rest.phone %>"><p class="restPhone"><%= rest.display_phone %></p></a>
                 </div>
                 <div class="restInfoCol">
                     <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>"><button class="restBtn">Info</button></a>
-                    <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>"><button class="recBtn">Rec</button></a>
-                    <button class="restBtn">See More</button></a>
-                    <p><a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>/save">Suggest</a></p>
+                    <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>/save"><button class="recBtn">Rec</button></a>
                     <div class="restRating">
                         <% const star = rest.rating %>
                         <% for(i=1; i<=star; i++) { %>
@@ -42,7 +46,7 @@
             </div>
         </div>
     <% }) %>
-
+    <a href="#top"><i class="fas fa-arrow-up" id="topArrow"></i></a>
 </main>
 
 <%- include('../partials/footer') %>

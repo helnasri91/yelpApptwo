@@ -1,17 +1,13 @@
 <%- include('../partials/header') %>
-<nav id="navBar">
-    <%- include('../partials/logo') %>
-    <%- include('../partials/search') %>
-</div>
-<main id="foodListings">
-    <h3>User's <span style="text-transform:capitalize">SuGgEsTiOnS</span></h3>
+<%- include('../partials/nav') %>
+
+<main id="suggestions">
+    <h3>Let's Eat At...</h3>
     <% for(let i=0; i < suggested.length; i++){  %>
         <p><%= suggested[i].restaurant.name %></p>
     <% }%>
 
 </main>
 
+
 <%- include('../partials/footer') %>
-
-
-
