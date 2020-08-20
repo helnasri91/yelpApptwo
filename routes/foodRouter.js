@@ -178,9 +178,9 @@ router.get('/location=:city/price=:price/id=:id', async (req, res) => {
             .then((reviews) => {
                 res.render("food/foodShow", {
                     restaurant: restaurant.data,
-                    // price: req.params.price,
-                    // id: req.params.id,
-                    // city: req.params.city,
+                    price: req.params.price,
+                    id: req.params.id,
+                    city: req.params.city,
                     reviews: reviews.data.reviews
                 })
             })
@@ -210,7 +210,9 @@ router.get('/location=:city/price=:price/id=:id/save', (req,res) => {
 
         const SendingObject = {
             restaurant: restaurant.data,
-            id: req.params.id
+            id: req.params.id,
+            city,
+            price
         }
 
         var origLength = req.session.suggested.length // Stores Original Length
