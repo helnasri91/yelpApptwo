@@ -14,7 +14,11 @@
     <% restaurants.forEach(rest => { %>
         <div class="restaurant">
             <div class="restImg">
-                <img src="<%= rest.image_url %>">
+                <% if(rest.image_url){%>
+                    <img src="<%= rest.image_url %>">
+                    <%}else{%>
+                    <img src="https://images.unsplash.com/photo-1575833947349-69324d765146?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"> 
+                    <%}%> 
             </div>
             <div class="restInfo">
                 <div class="restInfoCol">
@@ -27,6 +31,7 @@
                 </div>
                 <div class="restInfoCol">
                     <button class="restBtn">See More</button></a>
+                    <p><a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>/save">Suggest</a></p>
                     <div class="restRating">
                         <% const star = rest.rating %>
                         <% for(i=1; i<=star; i++) { %>

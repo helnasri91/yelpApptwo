@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios')
+
 // Obtaining the API Key from process.env
 const { YELP_API_KEY } = process.env 
 
@@ -76,7 +77,7 @@ router.get('/location=:city/price=:price', async (req, res) => {
 
     //If price=any, will search with no price filter consideration, Else, will search with price filter consideration
     const priceConsideration =  !priceFilter ? `` : `&price=${priceFilter}`
-
+    console.log("Running API Call for List....")
     var config = { // -- Config for first 50 results
         method: 'get', 
         url: `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}&limit=50&sort_by=distance${priceConsideration}`,
@@ -121,7 +122,8 @@ router.get('/location=:city/price=:price', async (req, res) => {
                 city,
                 page,
                 price,
-                restaurants: adjustedResults 
+                restaurants: adjustedResults,
+                suggested: req.session.suggested 
         
             })
         })
@@ -134,7 +136,6 @@ router.get('/location=:city/price=:price', async (req, res) => {
 
 
 })
-
 
 //API call to get food place info by ID
 router.get('/location=:city/price=:price/id=:id', async (req, res) => {
@@ -163,11 +164,9 @@ router.get('/location=:city/price=:price/id=:id', async (req, res) => {
             .then((reviews) => {
                 res.render("food/foodShow", {
                     restaurant: restaurant.data,
-                    price: req.params.price,
-                    id: req.params.id,
-                    page: req.params.page,
-                    city: req.params.city,
-                    location: restaurant.location,
+                    // price: req.params.price,
+                    // id: req.params.id,
+                    // city: req.params.city,
                     reviews: reviews.data.reviews
                 })
             })
@@ -178,5 +177,60 @@ router.get('/location=:city/price=:price/id=:id', async (req, res) => {
         res.redirect('/')
         }
 })
+
+  
+
+//Route will be at /location=:city/price=:price/id=:id/save and will save the user's suggestion, then re-route them to the page with the paramater saved=true
+router.get('/location=:city/price=:price/id=:id/save', (req,res) => {
+    const { city,price,id } = req.params
+
+    var config = {
+        method: 'get',
+        url: `https://api.yelp.com/v3/businesses/${req.params.id}`,
+        headers: { 
+            'Authorization': `Bearer ${YELP_API_KEY}`
+        }
+    };
+    axios(config)
+    .then((restaurant) => {
+
+        const SendingObject = {
+            restaurant: restaurant.data,
+            id: req.params.id
+        }
+
+        var origLength = req.session.suggested.length // Stores Original Length
+        req.session.suggested = req.session.suggested.filter( elem => { //Filters out a duplicate if it exists
+            return elem.restaurant.name !== SendingObject.restaurant.name
+        })
+        if(origLength === req.session.suggested.length){// If no change occured, then push it in.
+            req.session.suggested.push(SendingObject)
+        }
+        
+        console.log(req.session.suggested)
+        res.redirect(`/food/location=${city}/price=${price}`)
+
+    })
+    .catch((err) => {
+        console.log(err);
+        res.redirect('/')
+    })
+
+
+
+
+    // if(!req.session.suggested.includes(id)){
+    //     req.session.suggested.push(id)
+    // }else{
+    //     //remove the suggestion
+    //     req.session.suggested = req.session.suggested.filter( elem => {
+    //         return elem !== id
+    //     })
+    // }
+    
+})
+
+//Helper to check if Suggestion already Exists
+
 
 module.exports = router;
