@@ -7,7 +7,11 @@
 <main id="foodShow">
 
     <div class="restImg">
+        <% if(restaurant.image_url){%>
         <img src="<%= restaurant.image_url %>">
+        <%}else{%>
+        <img src="https://images.unsplash.com/photo-1575833947349-69324d765146?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"> 
+        <%}%>    
     </div>
 
     <section>
@@ -39,6 +43,7 @@
             <% }) %>
         </div>
     </div>
+
 
     <div class="restReviews">
         <h4>Reviews</h4>
