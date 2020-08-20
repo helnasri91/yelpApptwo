@@ -15,6 +15,22 @@ a:active {
 }
 
 /* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid lightgray;
+    z-index: 2;
+}
+header i {
+    font-size: 1.5em;
+    color: #4c4c4c;
+}
 #logo {
     position: relative;
     height: 3rem;
@@ -22,15 +38,9 @@ a:active {
     top: 5px;
 }
 .logo_mobile {
-    display: none;
+    display: block;
 }
 .logo_full {
-    display: block;
-}
-#navBar .logo_mobile {
-    display: block;
-}
-#navBar .logo_full {
     display: none;
 }
 .logo_name {
@@ -54,8 +64,55 @@ a:active {
     left: -6px;
     top: 6px;
 }
+#navBar {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+#searchBar {
+    display: none;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+}
+#filterMenu {
+    display: none;
+}
+.filters {
+    width: 90%;
+    margin: 65px auto -5px;
+    display: flex;
+    justify-content: space-around;
+}
+.filters a {
+    text-align: center;
+    width: 25%;
+    cursor: pointer;
+    padding: 10px;
+    margin: 1px 5px;
+    background-color: #FCE762;
+    border: none;
+    border-bottom: 2px solid #FF9000;
+    color: black;
+    outline: none;
+    transition: .2s ease all;
+    border-radius: 3px;
+}
+.filters a:hover {
+    background-color: #fcc162;
+    border-bottom: 2px solid #ff5000;
+}
+.filters a:active, .active {
+    background-color: #F25757 !important;
+    border-bottom: 2px solid darkred !important;
+}
+#clearFilters {
+    display: block;
+    width: 88%;
+    margin: 5px auto 0;
+}
 
-/* Hero  & NavBar Styles */
+/* Landing Page Styles */
 #hero {
     background-image: url(/images/lunch.jpg);
     background-size: cover;
@@ -97,18 +154,6 @@ a:active {
     padding: 5px;
     border-bottom: 2px solid darkgray;
 }
-#navBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: auto;
-}
-#searchBar {
-    margin: 0;
-    margin-right: 10px;
-    padding: 0;
-}
 #hero form button, #searchBar button {
     outline: none;
     border: none;
@@ -145,52 +190,17 @@ a:active {
 #foodListings {
     display: flex;
     flex-flow: row wrap;
+    margin-top: 50px;
 }
 #foodListings h3 {
     width: 90%;
     margin: 0 auto;
     font-size: 2em;
     margin: 20px auto 0;
-    border-top: 1px solid lightgray;
     padding-bottom: 5px;
     text-align: center;
     border-bottom: 1px solid lightgray;
 }
-.filters {
-    width: 90%;
-    margin: 15px auto -5px;
-    display: flex;
-    justify-content: space-around;
-}
-.filters a {
-    text-align: center;
-    width: 25%;
-    cursor: pointer;
-    padding: 10px;
-    margin: 1px 5px;
-    background-color: #FCE762;
-    border: none;
-    border-bottom: 2px solid #FF9000;
-    color: black;
-    outline: none;
-    transition: .2s ease all;
-    border-radius: 3px;
-}
-.filters a:hover {
-    background-color: #fcc162;
-    border-bottom: 2px solid #ff5000;
-}
-.filters a:active, .active {
-    background-color: #F25757 !important;
-    border-bottom: 2px solid darkred !important;
-}
-
-#clearFilters {
-    display: block;
-    width: 90%;
-    margin: 0 auto;
-}
-
 .restaurant {
     width: 90%;
     margin: 25px auto;
@@ -233,7 +243,7 @@ a:active {
 .restName {
     font-weight: bold;
     font-size: 1.1em;
-    margin: 5px auto;
+    margin: 5px 0;
 }   
 .restAddress {
     margin: 0;
@@ -247,13 +257,16 @@ a:active {
     cursor: pointer;
     transition: .2s ease all;
     display: block;
-
+    width: 100px;
 }
 .recBtn {
-    background-color: #fcc162;
+    background-color: #FCE762;
     color: black;
-    border-bottom: 2px solid orange;
-
+    border-bottom: 2px solid #fcc162;
+    position: absolute;
+    /* right: 80px; */
+    right: 0;
+    top: 38px;
 }
 .restBtn {
     background-color: #F25757;
@@ -261,9 +274,22 @@ a:active {
     border-bottom: 2px solid darkred;
     position: absolute;
     right: 0;
+    top: 0;
+}
+.recBtn:hover {
+    background-color: #fcc162;
+    border-bottom: 2px solid #ff9b5f;
 }
 .restBtn:hover {
     background-color: #c14545;
+}
+/* .restBtn:active, .recBtn:active {
+    border: none;
+    top: 2px;
+} */
+.recBtn:active {
+    border: none;
+    top: 40px;
 }
 .restBtn:active {
     border: none;
@@ -276,7 +302,7 @@ a:active {
     width: 20px;
 }
 #foodListings .restRatingStars {
-    margin-top: 50px;
+    margin-top: 90px;
 }
 
 /* foodShow-Individual Page Styles */
@@ -315,6 +341,41 @@ a:active {
     display: block;
     object-fit: cover;
 }
+.restReviews {
+    width: 95%;
+    padding: 5px;
+    margin: 0 auto;
+}
+.restReviews h4 {
+    font-size: 1.2em;
+    border-bottom: 1px dashed lightgray;
+}
+.reviewInfo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: justify;
+}
+.reviewInfo > * {
+    display: inline-block;
+}
+.reviewInfo span:first-child {
+    margin-right: 10px;
+    font-weight: bold;
+}
+.userImg {
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.userImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
 
 /* Footer Styles */
 footer {
@@ -334,13 +395,6 @@ footer p {
 
 /* Media Queries */
 @media screen and (min-width: 500px) {
-    /* Hero & NavBar Styles */
-    #navBar .logo_mobile {
-        display: none;
-    }
-    #navBar .logo_full {
-        display: block;
-    }
     #hero div {
         position: absolute;
         top: 20%;
@@ -353,6 +407,12 @@ footer p {
 }
 @media screen and (min-width: 700px) {
     /* Hero & NavBar Styles */
+    .logo_mobile {
+        display: none;
+    }
+    .logo_full {
+        display: block;
+    }
     #searchBar {
         width: 60%;
     }
@@ -387,7 +447,6 @@ footer p {
     #about div {
         max-width: 60%;
     }
-
     /* foodListings-Results Styles */
     #foodListings {
         max-width: 75%;

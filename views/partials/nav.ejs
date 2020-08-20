@@ -1,0 +1,22 @@
+<nav id="navBar">
+    <i class="fas fa-search"></i>
+    <div id="searchBar">
+        <form action="/food/results" method="POST">
+            <input type="text" placeholder="Enter Address..." name="cityBox">
+            <button type="submit">&gt;</button>
+        </form>
+    </div>
+
+    <i class="fas fa-filter"></i>
+    <div id="filterMenu">
+        <div class="filters">
+            <a href="/food/location=<%= city %>/price=low" class="<%= price==='low' ? 'active' : '' %>">$</a>
+            <a href="/food/location=<%= city %>/price=med" class="<%= price==='med' ? 'active' : '' %>">$$</a>
+            <a href="/food/location=<%= city %>/price=high" class="<%= price==='high' ? 'active' : '' %>">$$$</a>
+            <a href="/food/location=<%= city %>/price=ultraHigh" class="<%= price==='ultraHigh' ? 'active' : '' %>">$$$$</a>
+        </div>
+        <a href="/food/location=<%= city %>/price=all" id="clearFilters">Clear Filter</a>
+    </div>
+
+    <i class="fas fa-users"></i>
+</nav>

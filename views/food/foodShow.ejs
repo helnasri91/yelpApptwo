@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
-<nav id="navBar">
+<header>
     <%- include('../partials/logo') %>
-    <%- include('../partials/search') %>
-</nav>
+    <%- include('../partials/nav') %>
+</header>
 
 <main id="foodShow">
 
@@ -19,7 +19,6 @@
                     <% for(i=1; i<=star; i++) { %>
                         <img class="restRatingStars" src="/images/star.svg">
                     <% } %>
-                    <!-- check if whole number, if decimal, add half-star img -->
                 </div>
                 <p class="restAddress"><%= restaurant.location.address1 %> <%= restaurant.location.address2 %></p>
                 <p class="restAddress"><%= restaurant.location.address3 %></p>
@@ -27,7 +26,8 @@
                 <p class="restPhone"><%= restaurant.display_phone %></p>
             </div>
             <div class="restInfoCol">
-                <a href="<%= restaurant.url %>" target="_blank" rel="noopener noreferrer"><button class="restBtn">Order On Yelp</button></a>
+                <a href="<%= restaurant.url %>" target="_blank" rel="noopener noreferrer"><button class="restBtn" style="width:150px">Order On Yelp</button></a>
+                <a href="<%= restaurant.url %>" target="_blank" rel="noopener noreferrer"><button class="recBtn" style="width:150px">Recommend</button></a>
             </div>
         </div>
     
@@ -40,18 +40,17 @@
         </div>
     </div>
 
-    <div class="foodImgCol">
-        <% restaurant.photos.forEach(url => { %>
-            <div class="foodImg">
-                <a href="<%= url %>" target="_blank" rel="noopener noreferrer"><img src="<%= url %>"></a>
-            </div>
-        <% }) %>
-    </div>
-
     <div class="restReviews">
-        <p><%= reviews[0].text %></p>
-
-        
+        <h4>Reviews</h4>
+        <% for(i=0;i<reviews.length; i++) { %>
+            <p class="reviewInfo">
+                <span class="userImg">
+                    <img src="<%= reviews[i].user.image_url %>">
+                </span>
+                <span><%= reviews[i].user.name %></span>
+            </p>
+            <p><%= reviews[i].text %> <a target="_blank" rel="noopener noreferrer" href="<%= reviews[i].url %>">See More</a></p>
+       <% } %>
  
     </div>
 
