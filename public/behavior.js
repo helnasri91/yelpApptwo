@@ -1,32 +1,44 @@
-// Logo Name
+// // Logo Name
 const screenWidth = window.innerWidth;
 const logos = document.querySelectorAll(".logo_name");
 
-changeLogo();
+// // changeLogo();
 
-function changeLogo() {
-    const screenWidth = window.innerWidth;
-    if(screenWidth <= 700) {
-        for(i=0; i<logos.length; i++) {
-            logos[i].textContent = "FV";
-        }
+// function changeLogo() {
+//     const screenWidth = window.innerWidth;
+//     if(screenWidth <= 700) {
+//         for(i=0; i<logos.length; i++) {
+//             logos[i].textContent = "FV";
+//         }
+//     } else {
+//         for(i=0; i<logos.length; i++) {
+//             logos[i].textContent = "FoodVerse";
+//         }
+//     }
+// }
+
+// window.addEventListener("resize", changeLogo);
+
+// Search Bar
+const navBarBtn = document.querySelectorAll("#navBar i");
+const searchBar = document.getElementById("searchBar");
+const bod = document.querySelector("main");
+
+navBarBtn[0].addEventListener("click", expandSearch);
+bod.addEventListener("click", hideSearch);
+
+function expandSearch() {
+    searchBar.style.display = "block";
+    if(screenWidth <= 450) {
+        navBarBtn[0].style.display = "none";
+        navBarBtn[1].style.display = "none";
     } else {
-        for(i=0; i<logos.length; i++) {
-            logos[i].textContent = "FoodVerse";
-        }
+
     }
 }
 
-window.addEventListener("resize", changeLogo);
-
-// // Rotating Hero Image
-// const bgImg = ['/images/breakfast.jpg)', '/images/lunch.jpg)', '/images/dinner.jpg)'];
-
-// function imgRevolve() {
-//     for(i=0; i<bgImg.length; i++) {
-//         document.getElementById("hero").style.backgroundImage = 'url(' + bgImg[i] + ')';
-//     }
-
-//     setInterval(function() {
-//     }, 2000);
-// }
+function hideSearch() {
+    searchBar.style.display = "none";
+    navBarBtn[0].style.display = "block";
+    navBarBtn[1].style.display = "block";
+}
