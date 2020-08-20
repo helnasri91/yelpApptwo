@@ -8,7 +8,7 @@ const { YELP_API_KEY } = process.env
 // A temporary storage for all the chains we want to blacklist from access on our site
 // -- https://www.restaurantbusinessonline.com/top-500-chains?year=2020&page=2#data-table
 const chainCompanies = [ "Fatburger" , "WaBa Grill" , "Piara Pizza" , "Wienerschnitzel" , "Ono Hawaiian BBQ" , "Chuck E. Cheese" , "EveryTable" , "Yoshinoya" , "Pizzaroni", "" , 
-"Winchell's Donuts" , " " , "McDonald's" , "Starbucks" , "Chick-fil-A" , "Taco Bell" , "Burger King" , "Subway" , "Wendy's" , "Dunkin" , "Domino's Pizza" , "Rally's" ,
+"Winchell's Donuts" , " " , "McDonald's" , "Starbucks" , "Chick-fil-A" , "Taco Bell" , "Burger King" , "Subway" , "Wendy's" , "Dunkin" , "Domino's Pizza" , "Dominos Pizza", "Rally's" ,
 "Panera Bread" , "Pizza Hut" , "Chipotle Mexican Grill" , "Sonic Drive-In" , "KFC" , "Olive Garden" , "Olive Garden Italian Restaurant", "Applebee's" , "Applebee's Grill + Bar", "Panda Express" , "Arby's" , "Popeyes Louisiana Kitchen" ,
 "Little Caesars Pizza" , "Little Caesers Pizza", "Dairy Queen" , "Dairy Queen Orange Julius", "Buffalo Wild Wings" , "Chili's Grill & Bar" , "Chili's", "Jack in the Box" , "IHOP" , "Texas Roadhouse" , "Denny's" ,"Papa John's Pizza" , "Outback Steakhouse" ,
 "Whataburger" , "Red Lobster" , "Cracker Barrel" , "The Cheesecake Factory" , "Jimmy John's" , "Hardee's" , "Zaxby's" , "LongHorn Steakhouse" , "Culver's" , "Golden Corral" , "Five Guys", 
@@ -18,7 +18,7 @@ const chainCompanies = [ "Fatburger" , "WaBa Grill" , "Piara Pizza" , "Wienersch
 "Carrabba's Italian Grill", "Jason's Deli", "Marco's Pizza", "Shake Shack", "California Pizza Kitchen", "Baskin-Robbins", "Yard House", "Bonefish Grill", "White Castle", "Tropical Smoothie Cafe", 
 "Dave & Buster's", "Dutch Bros. Coffee", "Captain D's Seafood Kitchen", "Auntie Anne's", "First Watch", "Perkins Restaurant & Bakery", "Freddy's Frozen Custard & Steakburgers", 
 "Checkers Drive-In Restaurants", "Noodles & Company" , "Einstein Bros. Bagels" , "Einstein Bros Bagels", "Jamba" , "Portillo's" , "Boston Market" , "The Habit Burger Grill" , "Logan's Roadhouse" , "MOD Pizza" , "Smoothie King" ,
-"Mellow Mushroom" , "The Capital Grille" , "Round Table Pizza" , "Miller's Ale House" , "Potbelly sandwich Shop" , "Hungry Howie's Pizza", "Lee's Sandwiches", "Jollibee", "Flame Broiler", "The Flame Broiler", "Blaze Fast-Fire'd Pizza", "L&L Hawaiian Barbecue", "Dickey's Barbecue Pit", "Louisiana Famous Fried Chicken" , "Sarku Japan" , "Sbarro", "Cinnabon", "Steak Escape", "A&W", "Wahoo's Fish Tacos", "QuikTrip", "Mazzio's Pizza", "sweetgreen", "Sweetgreen", "Luna Grill", "Uncle Tetsu", "Burgerim", "BurgerIM"]
+"Mellow Mushroom" , "The Capital Grille" , "Round Table Pizza" , "Miller's Ale House" , "Potbelly sandwich Shop" , "Hungry Howie's Pizza", "Lee's Sandwiches", "Jollibee", "Flame Broiler", "The Flame Broiler", "Blaze Fast-Fire'd Pizza", "L&L Hawaiian Barbecue", "Dickey's Barbecue Pit", "Louisiana Famous Fried Chicken" , "Sarku Japan" , "Sbarro", "Cinnabon", "Steak Escape", "A&W", "Wahoo's Fish Tacos", "QuikTrip", "Mazzio's Pizza", "sweetgreen", "Sweetgreen", "Luna Grill", "Uncle Tetsu", "Burgerim", "BurgerIM", "Philz Coffee"]
 
 /* -- Throwing all Failures Here
     --Partial Faliure Cases

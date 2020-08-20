@@ -86,9 +86,10 @@ header i {
 }
 #searchBar input {
     min-width: 100%;
+    background-color: whitesmoke;
 }
 #searchBar form {
-    margin-right: 30px;;
+    margin-right: 30px;
 }
 .filters {
     width: 90%;
@@ -156,7 +157,7 @@ header i {
 #hero form, #searchBar form {
     display: flex;
     justify-content: flex-start;
-    box-shadow: -1px 1px 5px gray;
+    /* box-shadow: -1px 1px 5px gray; */
 }
 #hero form input, #searchBar input {
     font-size: 1em;
@@ -164,6 +165,7 @@ header i {
     outline: none;
     padding: 5px;
     border-bottom: 2px solid darkgray;
+    border-radius: 5px 0 0 5px;
 }
 #hero form button, #searchBar button {
     outline: none;
@@ -176,6 +178,7 @@ header i {
     transition: .2s ease all;
     text-shadow: -2px 2px 2px gray;
     border-bottom: 2px solid darkred;
+    border-radius: 0 5px 5px 0;
 }
 #hero form button:hover, #searchBar button:hover {
     background-color: #c14545;
@@ -198,11 +201,11 @@ header i {
 }
 
 /* foodListings-Results Styles */
-#foodListings {
+.foodListings {
     display: flex;
     flex-flow: row wrap;
 }
-#foodListings h3 {
+.foodListings h3, #suggestions h3 {
     width: 90%;
     margin: 0 auto;
     font-size: 2em;
@@ -311,7 +314,7 @@ header i {
 .restRatingStars {
     width: 20px;
 }
-#foodListings .restRatingStars {
+.foodListings .restRatingStars {
     margin-top: 90px;
 }
 #topArrow {
@@ -411,12 +414,53 @@ header i {
 }
 
 /* Suggestions Page Styles */
+#suggestions .restaurant {
+    position: relative;
+}
+.bitmoji {
+    position: absolute;
+    top: -30px;
+}
 #suggestions {
     margin: 65px auto auto;
 }
-#suggestions h3 {
+#suggestions h4 {
+    width: 90%;
+    margin: 30px auto 10px;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.3em;
+}
+#suggestions .restImg { 
+    max-width: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    margin: 5px;
+}
+#suggestions .restImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+#suggestions .restInfo {
+    width: 95%;
+    padding: 5px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#suggestions .restInfoCol {
+    position: relative;
+    width: 50%;
+    margin-right: 5px;
+}
+#suggestions .restInfoCol:last-child {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 /* Footer Styles */
@@ -476,7 +520,7 @@ footer p {
 }
 @media screen and (min-width: 900px) {
     /* foodListings-Results Styles */
-    #foodListings h3 {
+    .foodListings h3, #suggestions h3 {
         width: 95%;
         text-align: center;
     }
@@ -494,11 +538,11 @@ footer p {
         max-width: 60%;
     }
     /* foodListings-Results Styles */
-    #foodListings {
+    .foodListings {
         max-width: 75%;
         margin: 0 auto;
     }
-    #foodListings h3 {
+    .foodListings h3, #suggestions h3 {
         margin-top: 20px;
         width: 97%;
     }

@@ -10,7 +10,7 @@
 </div>
 <a href="/food/location=<%= city %>/price=all" id="clearFilters">Clear Filter</a>
 
-<main id="foodListings">
+<main class="foodListings">
     <h3>Top Restaurants in <span style="text-transform:capitalize"><%= city %></span></h3>
         
     <% restaurants.forEach(rest => { %>
@@ -39,7 +39,6 @@
                             <img class="restRatingStars" src="/images/star.svg">
                         <% } %>
                     </div>
-                    <% const meters = rest.distance %>
                     <% const miles = rest.distance * 0.00062 %>
                     <p><%= rest.price %> | <%= miles.toFixed(1) %> miles</p>  
                 </div>
