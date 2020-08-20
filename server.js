@@ -59,6 +59,7 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 
+
 app.get('/', (req, res, next) => {
 	res.render('index', { title: 'Local Restaraunt!!! Enter Zip' });
 });
