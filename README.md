@@ -25,7 +25,9 @@ FoodVerse is a project utilizing YELP’s API and a filtering system to exclude 
 * Filter restaurants through pricing filters from more user control
 * Restaurant recommendation feature between users in a group
 
-![alt text](public/images/votingMobile.png), ![alt text 2](public/images/searchMobilepage.png), ![alt text 3](public/images/MobileLandingpage.png)
+![alt text](public/images/votingMobile.png)
+ ![alt text 2](public/images/searchMobilepage.png)
+  ![alt text 3](public/images/MobileLandingpage.png)
 
 
 ## **Roadmap**
