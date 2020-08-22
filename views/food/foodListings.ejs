@@ -17,9 +17,9 @@
         <div class="restaurant">
             <div class="restImg">
                 <% if(rest.image_url){%>
-                <img src="<%= rest.image_url %>">
+                    <img src="<%= rest.image_url %>">
                 <%}else{%>
-                <img src="https://images.unsplash.com/photo-1575833947349-69324d765146"> 
+                    <img src="https://images.unsplash.com/photo-1575833947349-69324d765146"> 
                 <%}%> 
             </div>
             <div class="restInfo">
@@ -31,15 +31,15 @@
                     <a href="tel:<%= rest.phone %>"><p class="restPhone"><%= rest.display_phone %></p></a>
                 </div>
                 <div class="restInfoCol">
-                    <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>"><button class="restBtn">Info</button></a>
+                    <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>"><button class="restBtn"><i class="fas fa-info-circle"></i></button></a>
                     <% // Temp is used to store an array. If temp.length != 0, then the current restaurant has been Suggested. %>
                     <% let temp = suggested.filter( elem => { console.log(elem.restaurant.name + rest.name) ; return elem.restaurant.name === rest.name } ) %>
                     <% let test = ( temp.length === 0 ? true : false)            %>          
                     <% if(test){%>
-                        <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>/save"><button class="recBtn">Rec</button></a>
+                        <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>/save"><button class="recBtn"><i class="fas fa-users"></i></button></a>
                     <% } else {%>
-                        <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>/save"><button class="recBtn">UnRec</button></a>
-                    <% }%>
+                        <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= rest.id %>/save"><button class="unRecBtn"><i class="fas fa-users-slash"></i></button></a>
+                    <% }%> 
                     <div class="restRating">
                         <% const star = rest.rating %>
                         <% for(i=1; i<=star; i++) { %>

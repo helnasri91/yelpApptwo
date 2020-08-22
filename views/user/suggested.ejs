@@ -23,6 +23,9 @@
                         <p class="restAddress"><%= suggested[i].restaurant.location.address3 %></p>
                         <p class="restAddress"><%= suggested[i].restaurant.location.city %>, <%= suggested[i].restaurant.location.state %> <%= suggested[i].restaurant.location.zip_code %></p>
                         <a href="tel:<%= suggested[i].restaurant.phone %>"><p class="restPhone"><%= suggested[i].restaurant.display_phone %></p></a>
+                        <div class="suggBtn">
+                            <button><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,9 +47,12 @@
                     <div class="restInfoCol">
                         <p class="restName">Vietnoms</p>
                         <p class="restAddress">387 S 1st St Ste 121</p>
-                        <p class="restAddress">Sofa Market</p>
                         <p class="restAddress">San Jose, CA 95113</p>
                         <a href="tel:+4088275812"><p class="restPhone">(408) 827-5812</p></a>
+                        <div class="voteBtn">
+                            <button><i class="fas fa-arrow-up"></i> Yea</button>
+                            <button><i class="fas fa-arrow-down"></i> Nay</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,22 +61,23 @@
                 <div class="userImg bitmoji">
                     <img src="../images/bitmoji2.png">
                 </div>
-                <div>
-                    <div class="restInfo">
-                        <div class="restInfoCol">
-                            <div class="restImg">
-                                <img src="https://s3-media3.fl.yelpcdn.com/bphoto/3oW4gvYsO83HggYGlqfymw/o.jpg">
-                            </div>
+                <div class="restInfo">
+                    <div class="restInfoCol">
+                        <div class="restImg">
+                            <img src="https://s3-media3.fl.yelpcdn.com/bphoto/3oW4gvYsO83HggYGlqfymw/o.jpg">
                         </div>
-                        <div class="restInfoCol">
-                            <p class="restName">El Torito Azteca</p>
-                            <p class="restAddress">735 S 1st St</p>
-                            <p class="restAddress">San Jose, CA 95113</p>
-                            <a href="tel:+4085095274"><p class="restPhone">(408) 509-5274</p></a>
+                    </div>
+                    <div class="restInfoCol">
+                        <p class="restName">El Torito Azteca</p>
+                        <p class="restAddress">735 S 1st St</p>
+                        <p class="restAddress">San Jose, CA 95113</p>
+                        <a href="tel:+4085095274"><p class="restPhone">(408) 509-5274</p></a>
+                        <div class="voteBtn">
+                            <button><i class="fas fa-arrow-up"></i> Yea</button>
+                            <button><i class="fas fa-arrow-down"></i> Nay</button>
                         </div>
                     </div>
                 </div>
-                
             </div>
 
             <div class="restaurant">    
@@ -84,10 +91,14 @@
                         </div>
                     </div>
                     <div class="restInfoCol">
-                        <p class="restName">Mimosas of Willow Glen</p>
-                        <p class="restAddress">840 Willow St Ste 400</p>
-                        <p class="restAddress">San Jose, CA 95125</p>
-                        <a href="tel:+4083255015"><p class="restPhone">(408) 352-5015</p></a>
+                        <p class="restName">iJava Cafe</p>
+                        <p class="restAddress">387 Delmas Ave</p>
+                        <p class="restAddress">San Jose, CA 95126</p>
+                        <a href="tel:+4087539732"><p class="restPhone">(408) 753-9732</p></a>
+                        <div class="voteBtn">
+                            <button><i class="fas fa-arrow-up"></i> Yea</button>
+                            <button><i class="fas fa-arrow-down"></i> Nay</button>
+                        </div>
                     </div>
                 </div>
             </div>

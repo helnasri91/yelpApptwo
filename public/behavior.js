@@ -1,6 +1,6 @@
 // // Logo Name
-const screenWidth = window.innerWidth;
-const logos = document.querySelectorAll(".logo_name");
+// const screenWidth = window.innerWidth;
+// const logos = document.querySelectorAll(".logo_name");
 
 // // changeLogo();
 
@@ -42,3 +42,5 @@ function hideSearch() {
     navBarBtn[0].style.display = "block";
     navBarBtn[1].style.display = "block";
 }
+
+// Share Button
