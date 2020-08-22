@@ -26,8 +26,11 @@ FoodVerse is a project utilizing YELP’s API and a filtering system to exclude 
 * Restaurant recommendation feature between users in a group
 
 ![alt text](/Users/hassanazizelnasri/Desktop/SEA2020/yelpApptwo/public/images/Screen Shot 2020-08-22 at 7.59.25 AM.png)
+
 ![alt text 2](/Users/hassanazizelnasri/Desktop/SEA2020/yelpApptwo/public/images/Screen Shot 2020-08-22 at 8.01.24 AM.png)
+
 ![alt text 3](/Users/hassanazizelnasri/Desktop/SEA2020/yelpApptwo/public/images/Screen Shot 2020-08-22 at 8.32.00 AM.png)
+
 
 ## **Roadmap**
 Final versions of the project will include:
@@ -60,7 +63,7 @@ Giovanni Quevedo, Grace Park, and Hassan Aziz Elnasri
 ## **License**
 MIT License
 
-Copyright (c) [2020] [Grace Park, Giovannia Quevedo, Hassan Aziz Elnasri]
+Copyright (c) [2020] [Grace Park, Giovanni Quevedo, Hassan Aziz Elnasri]
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
