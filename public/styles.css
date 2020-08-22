@@ -495,6 +495,37 @@ header i {
     right: -5px;
 }
 
+/* Modal Styles */
+#infoBox {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    top: 30px;
+    left: 0;
+    overflow: auto;
+}
+.content {
+    position: fixed;
+    left: 0;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+}
+#modalBody {
+    padding: 10px 20px;
+    text-align: justify;
+    overflow-y: auto;
+    color: mintcream;
+    background-color: black;
+    background-color: rgba(0,0,0,.8);
+}
+@keyframes slideIn {
+    from {top: -300px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
 /* Footer Styles */
 footer {
     display: flex;
