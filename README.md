@@ -4,7 +4,7 @@ A food listings project utilizing YELP’s API - [http://foodverse.herokuapp.com
 
 ## **Description**
 FoodVerse is a project utilizing YELP’s API and a filtering system to exclude chains and expel them from users search results. The user will simply need to enter an address to be presented with a list of up to 100 restaurants ordered from closest to furthest restaurant based on the address given. Furthermore, a user who chooses to log on with their snapchat ID can select a restaurant of their choice to recommend the restaurant to their friends. list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-Visual
+
   
 
 ## **Requirements**
@@ -25,9 +25,9 @@ Visual
 * Filter restaurants through pricing filters from more user control
 * Restaurant recommendation feature between users in a group
 
-![](yelpApptwo/public/images/Screen Shot 2020-08-22 at 7.59.25 AM.png)
-![](yelpApptwo/public/images/Screen Shot 2020-08-22 at 8.01.24 AM.png)
-![](yelpApptwo/public/images/Screen Shot 2020-08-22 at 8.32.00 AM.png)
+![alt text](yelpApptwo/public/images/Screen Shot 2020-08-22 at 7.59.25 AM.png)
+![alt text 2](yelpApptwo/public/images/Screen Shot 2020-08-22 at 8.01.24 AM.png)
+![alt text 3](yelpApptwo/public/images/Screen Shot 2020-08-22 at 8.32.00 AM.png)
 
 ## **Roadmap**
 Final versions of the project will include:
@@ -60,7 +60,7 @@ Giovanni Quevedo, Grace Park, and Hassan Aziz Elnasri
 ## **License**
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [2020] [Grace Park, Giovannia Quevedo, Hassan Aziz Elnasri]
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
