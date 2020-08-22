@@ -210,7 +210,7 @@ router.get('/location=:city/price=:price/id=:id/save', (req,res) => {
 
         const SendingObject = {
             restaurant: restaurant.data,
-            id: req.params.id,
+            id,
             city,
             price
         }
