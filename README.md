@@ -27,9 +27,15 @@ FoodVerse is a project utilizing YELP’s API and a filtering system to exclude 
 
 ![alt text](public/images/mobileLandingPage.png)
 
+------
+
  ![alt text 2](public/images/searchpageMobile.png)
 
+ ------
+
   ![alt text 3](public/images/suggestedmobileview.png)
+
+  ------
 
 
 ## **Roadmap**
