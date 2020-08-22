@@ -182,7 +182,7 @@ router.get('/location=:city/price=:price/id=:id', async (req, res) => {
                     id: req.params.id,
                     city: req.params.city,
                     reviews: reviews.data.reviews,
-                    suggested: req.session.suggested
+                    suggested: req.session.suggested 
                 })
             })
         })
