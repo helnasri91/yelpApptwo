@@ -74,6 +74,10 @@ header i {
     margin-right: 10px;
     width: 50%;
 }
+#navBar i {
+    width: 30px;
+    text-align: center;
+}
 #navBar i:last-child {
     margin-left: 10px;
     margin-right: 10px;
@@ -261,7 +265,7 @@ header i {
 .restAddress {
     margin: 0;
 }
-.restBtn, .recBtn {
+.restBtn, .recBtn, .unRecBtn {
     outline: none;
     border: none;
     border-radius: 3px;
@@ -272,14 +276,17 @@ header i {
     display: block;
     width: 100px;
 }
-.recBtn {
+.recBtn, .unRecBtn {
     background-color: #FCE762;
     color: black;
     border-bottom: 2px solid #fcc162;
     position: absolute;
-    /* right: 80px; */
     right: 0;
     top: 38px;
+}
+.unRecBtn, .voteBtn button:last-child {
+    background-color: #D3D3D3;
+    border-bottom: 2px solid #303030; 
 }
 .restBtn {
     background-color: #F25757;
@@ -289,23 +296,22 @@ header i {
     right: 0;
     top: 0;
 }
-.recBtn:hover {
+.recBtn:hover, .voteBtn button:first-child:hover {
     background-color: #fcc162;
     border-bottom: 2px solid #ff9b5f;
 }
-.restBtn:hover {
+.unRecBtn:hover, .voteBtn button:last-child:hover {
+    background-color: #A8A8A8;
+}
+.restBtn:hover, .suggBtn button:hover {
     background-color: #c14545;
 }
-/* .restBtn:active, .recBtn:active {
-    border: none;
-    top: 2px;
-} */
 .recBtn:active {
     border: none;
     top: 40px;
 }
-.restBtn:active {
-    border: none;
+.restBtn:active, .voteBtn button:first-child:active, .voteBtn button:last-child:active, .suggBtn button:active {
+    border: none !important;
     top: 2px;
 }
 .restRating {
@@ -423,6 +429,14 @@ header i {
 }
 #suggestions {
     margin: 65px auto auto;
+    display: none;
+    animation-name: slideIn;
+    animation-duration: .5s;
+    position: relative;
+}
+@keyframes slideIn {
+    from {top: -3000px; opacity: 0;}
+    to {top: 0; opacity: 1;}
 }
 #suggestions h4 {
     width: 90%;
@@ -431,8 +445,8 @@ header i {
     font-size: 1.3em;
 }
 #suggestions .restImg { 
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 200px;
+    max-height: 200px;
     overflow: hidden;
     margin: 5px;
 }
@@ -449,7 +463,7 @@ header i {
     position: relative;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }
 #suggestions .restInfoCol {
     position: relative;
@@ -461,6 +475,36 @@ header i {
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
+}
+.suggBtn {
+    position: relative;
+    width: 100%;
+}
+.suggBtn button {
+    background-color: #F25757;
+    color: white;
+    border-bottom: 2px solid darkred !important;
+    position: absolute;
+}
+.voteBtn {
+    position: relative;
+    width: 100%;
+}
+.suggBtn button, .voteBtn button {
+    border: none;
+    padding: 7px;
+    border-radius: 3px;
+    outline: none;
+    position: absolute;
+    width: 50%;
+}
+.voteBtn button:first-child {
+    background-color: #FCE762;
+    color: black;
+    border-bottom: 2px solid #fcc162;
+}
+.voteBtn button:last-child {
+    right: -5px;
 }
 
 /* Footer Styles */
@@ -503,12 +547,6 @@ footer p {
     .logo_full {
         display: block;
     }
-    /* #searchBar {
-        width: 60%;
-    }
-    #searchBar input {
-        width: 100%;
-    } */
     /* About Styles */
     #about div {
         max-width: 80%;

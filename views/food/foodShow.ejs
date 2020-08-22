@@ -27,8 +27,14 @@
                 <p class="restPhone"><%= restaurant.display_phone %></p>
             </div>
             <div class="restInfoCol">
-                <a href="<%= restaurant.url %>" target="_blank" rel="noopener noreferrer"><button class="restBtn" style="width:150px">Order On Yelp</button></a>
-                <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= restaurant.id %>/save"><button class="recBtn" style="width:150px">Recommend</button></a>
+                <a href="<%= restaurant.url %>" target="_blank" rel="noopener noreferrer"><button class="restBtn" style="width:120px"><i class="fab fa-yelp"></i> Yelp</button></a>
+                <% let temp = suggested.filter( elem => { console.log(elem.restaurant.name + restaurant.name) ; return elem.restaurant.name === restaurant.name } ) %>
+                    <% let test = ( temp.length === 0 ? true : false)            %>          
+                    <% if(test){%>
+                        <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= restaurant.id %>/save"><button class="recBtn" style="width:120px"><i class="fas fa-users"></i> Suggest</button></a>
+                    <% } else {%>
+                        <a href="/food/location=<%=city%>/price=<%= price %>/id=<%= restaurant.id %>/save"><button class="unRecBtn" style="width:120px"><i class="fas fa-users-slash"></i> Remove</button></a>
+                    <% }%> 
             </div>
         </div>
     
@@ -57,5 +63,5 @@
     </div>
 
 </main>
-
+<%- include('../partials/suggestions') %>
 <%- include('../partials/footer') %>
