@@ -74,6 +74,10 @@ header i {
     margin-right: 10px;
     width: 50%;
 }
+#navBar i {
+    width: 30px;
+    text-align: center;
+}
 #navBar i:last-child {
     margin-left: 10px;
     margin-right: 10px;
@@ -425,6 +429,14 @@ header i {
 }
 #suggestions {
     margin: 65px auto auto;
+    display: none;
+    animation-name: slideIn;
+    animation-duration: .5s;
+    position: relative;
+}
+@keyframes slideIn {
+    from {top: -3000px; opacity: 0;}
+    to {top: 0; opacity: 1;}
 }
 #suggestions h4 {
     width: 90%;
@@ -493,37 +505,6 @@ header i {
 }
 .voteBtn button:last-child {
     right: -5px;
-}
-
-/* Modal Styles */
-#infoBox {
-    display: none;
-    position: fixed;
-    z-index: 5;
-    top: 30px;
-    left: 0;
-    overflow: auto;
-}
-.content {
-    position: fixed;
-    left: 0;
-    overflow-y: auto;
-    height: 100%;
-    width: 100%;
-    animation-name: slideIn;
-    animation-duration: 0.4s;
-}
-#modalBody {
-    padding: 10px 20px;
-    text-align: justify;
-    overflow-y: auto;
-    color: mintcream;
-    background-color: black;
-    background-color: rgba(0,0,0,.8);
-}
-@keyframes slideIn {
-    from {top: -300px; opacity: 0;}
-    to {top: 0; opacity: 1;}
 }
 
 /* Footer Styles */

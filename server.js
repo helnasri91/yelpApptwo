@@ -7,7 +7,7 @@ require('dotenv').config()
 const app = express();
 
 const foodListRouter = require('./routes/foodRouter');
-const { auth } = require('firebase');
+const { auth, remoteConfig } = require('firebase');
 
 // -- Implimenting Save Cookie, will be moved later..filters
 var parseurl = require('parseurl')
@@ -61,7 +61,7 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res, next) => {
-	res.render('index', { title: 'Local Restaraunt!!! Enter Zip' });
+	res.render('index', { suggested: req.session.suggested });
 });
 
 //Impliment this partial to use sign in -  <%- include('signup/index') %>

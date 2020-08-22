@@ -2,15 +2,16 @@
 <%- include('../partials/nav') %>
 
 <a id="top"></a>
-<div class="filters">
-    <a href="/food/location=<%= city %>/price=low" class="<%= price==='low' ? 'active' : '' %>">$</a>
-    <a href="/food/location=<%= city %>/price=med" class="<%= price==='med' ? 'active' : '' %>">$$</a>
-    <a href="/food/location=<%= city %>/price=high" class="<%= price==='high' ? 'active' : '' %>">$$$</a>
-    <a href="/food/location=<%= city %>/price=ultraHigh" class="<%= price==='ultraHigh' ? 'active' : '' %>">$$$$</a>
-</div>
-<a href="/food/location=<%= city %>/price=all" id="clearFilters">Clear Filter</a>
 
 <main class="foodListings">
+    <div class="filters">
+        <a href="/food/location=<%= city %>/price=low" class="<%= price==='low' ? 'active' : '' %>">$</a>
+        <a href="/food/location=<%= city %>/price=med" class="<%= price==='med' ? 'active' : '' %>">$$</a>
+        <a href="/food/location=<%= city %>/price=high" class="<%= price==='high' ? 'active' : '' %>">$$$</a>
+        <a href="/food/location=<%= city %>/price=ultraHigh" class="<%= price==='ultraHigh' ? 'active' : '' %>">$$$$</a>
+    </div>
+    <a href="/food/location=<%= city %>/price=all" id="clearFilters">Clear Filter</a>
+    
     <h3>Top Restaurants in <span style="text-transform:capitalize"><%= city %></span></h3>
         
     <% restaurants.forEach(rest => { %>
@@ -55,4 +56,5 @@
     <a href="#top"><i class="fas fa-arrow-up" id="topArrow"></i></a>
 </main>
 
+<%- include('../partials/suggestions') %>
 <%- include('../partials/footer') %>
