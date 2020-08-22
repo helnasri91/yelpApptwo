@@ -15,9 +15,11 @@ Visual
 •	Find restaurants without running into chains/franchises
 •	Filter restaurants through pricing filters from more user control
 •	Restaurant recommendation feature between users in a group
-![](Screen Shot 2020-08-22 at 7.59.25 AM.png)
-![](Screen Shot 2020-08-22 at 8.01.24 AM.png)
-![](Screen Shot 2020-08-22 at 8.32.00 AM.png)
+
+![](yelpApptwo/public/images/Screen Shot 2020-08-22 at 7.59.25 AM.png)
+![](yelpApptwo/public/images/Screen Shot 2020-08-22 at 8.01.24 AM.png)
+![](yelpApptwo/public/images/Screen Shot 2020-08-22 at 8.32.00 AM.png)
+
 ## **Roadmap**
 Final versions of the project will include:
 •	Polling system between friend groups to choose a restaurant
