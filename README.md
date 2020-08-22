@@ -62,7 +62,7 @@ Giovanni Quevedo, Grace Park, and Hassan Aziz Elnasri
 ## **License**
 MIT License
 
-Copyright (c) [2020] [Grace Park, Giovannia Quevedo, Hassan Aziz Elnasri]
+Copyright (c) [2020] [Grace Park, Giovanni Quevedo, Hassan Aziz Elnasri]
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
